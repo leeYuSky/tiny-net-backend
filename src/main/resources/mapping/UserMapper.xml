@@ -14,6 +14,14 @@
     from user
     where username = #{username,jdbcType=VARCHAR}
   </select>
+
+  <select id="exist" resultType="java.lang.long" parameterType="java.lang.String" >
+    select
+    count(*)
+    from user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
     where username = #{username,jdbcType=VARCHAR}
