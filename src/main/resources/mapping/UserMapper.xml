@@ -15,7 +15,7 @@
     where username = #{username,jdbcType=VARCHAR}
   </select>
 
-  <select id="exist" resultType="java.lang.long" parameterType="java.lang.String" >
+  <select id="exist" resultType="long" parameterType="java.lang.String" >
     select
     count(*)
     from user

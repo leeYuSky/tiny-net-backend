@@ -53,6 +53,9 @@
             <artifactId>spring-security-core</artifactId>
             <version>4.2.0.RELEASE</version>
         </dependency>
+
+
+
     </dependencies>
 
     <build>

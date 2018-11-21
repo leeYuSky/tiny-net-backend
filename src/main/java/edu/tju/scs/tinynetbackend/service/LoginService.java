@@ -3,17 +3,20 @@ package edu.tju.scs.tinynetbackend.service;
 import edu.tju.scs.tinynetbackend.domain.User;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
 @Service
-public class LoginService {
-    //@Autowired
+public class LoginService  {
+
+    @Autowired
     protected UserMapper userMapper;
 
-    //@Autowired
+    @Autowired
     protected HttpSession httpSession;
 
     public ErrorReport login(String username, String password){
@@ -76,6 +79,21 @@ public class LoginService {
         }else {
             return false;
         }
+    }
+
+    public String loginUser(){
+        return (String)httpSession.getAttribute("user");
+    }
+
+    public boolean checkUser(String username)
+    {
+        if(isLogin()==false)
+            return false;
+        String name = loginUser();
+        if(username.equals(name))
+            return  true;
+        else
+            return false;
     }
 
     public ErrorReport logout() {
