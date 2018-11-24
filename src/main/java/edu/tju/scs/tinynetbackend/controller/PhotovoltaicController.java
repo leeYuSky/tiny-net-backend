@@ -21,26 +21,26 @@ public class PhotovoltaicController {
     protected LoginService loginService;
 
     @Autowired
-    protected PhotovoltaicMapper PhotovoltaicMapper;
+    protected PhotovoltaicMapper photovoltaicMapper;
 
     @RequestMapping(value = "/tinyNet/device/photovoltaic/add",method = RequestMethod.POST)
     public ErrorReport add(@RequestBody Photovoltaic photovoltaic)
     {
-        PhotovoltaicMapper.insert(photovoltaic);
+        photovoltaicMapper.insert(photovoltaic);
         return new ErrorReport(0,"success");
     }
 
     @RequestMapping(value = "/tinyNet/device/photovoltaic/update",method = RequestMethod.POST)
     public ErrorReport update(@RequestBody Photovoltaic photovoltaic)
     {
-        PhotovoltaicMapper.updateByPrimaryKey(photovoltaic);
+        photovoltaicMapper.updateByPrimaryKey(photovoltaic);
         return new ErrorReport(0,"success");
     }
 
     @RequestMapping(value = "/tinyNet/device/photovoltaic/select",method = RequestMethod.POST)
     public ErrorReport select(int id)
     {
-        Photovoltaic photovoltaiclist =PhotovoltaicMapper.selectByPrimaryKey(id);
+        Photovoltaic photovoltaiclist =photovoltaicMapper.selectByPrimaryKey(id);
         if(photovoltaiclist!=null)
             return new ErrorReport(0,"success",new ResponseObjectData(photovoltaiclist));
         else
@@ -50,14 +50,14 @@ public class PhotovoltaicController {
     @RequestMapping(value = "/tinyNet/device/photovoltaic/delete",method = RequestMethod.POST)
     public ErrorReport delete(int id)
     {
-        PhotovoltaicMapper.deleteByPrimaryKey(id);
+        photovoltaicMapper.deleteByPrimaryKey(id);
         return new ErrorReport(0,"success");
     }
 
     @RequestMapping(value = "/tinyNet/device/photovoltaic/list",method = RequestMethod.POST)
     public ErrorReport list(String username)
     {
-        List<Photovoltaic> photovoltaiclist =PhotovoltaicMapper.selectByOwner(username);
+        List<Photovoltaic> photovoltaiclist =photovoltaicMapper.selectByOwner(username);
 
         return new ErrorReport(0,"success",new ResponseObjectData(photovoltaiclist));
 

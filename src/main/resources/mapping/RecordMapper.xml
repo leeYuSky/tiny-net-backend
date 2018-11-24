@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.tju.scs.tinynetbackend.mapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Record" >
+    <id column="name" property="name" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="owner" property="owner" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" extends="BaseResultMap" >
+    <result column="input" property="input" jdbcType="LONGVARCHAR" />
+    <result column="output" property="output" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    name, state, owner
+  </sql>
+  <sql id="Blob_Column_List" >
+    input, output
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from record
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByOwner" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from record
+    where owner = #{owner,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from record
+    where name = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+    insert into record (name, state, owner, 
+      input, output)
+    values (#{name,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{owner,jdbcType=VARCHAR}, 
+      #{input,jdbcType=LONGVARCHAR}, #{output,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+    insert into record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="owner != null" >
+        owner,
+      </if>
+      <if test="input != null" >
+        input,
+      </if>
+      <if test="output != null" >
+        output,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="input != null" >
+        #{input,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="output != null" >
+        #{output,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+    update record
+    <set >
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="owner != null" >
+        owner = #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="input != null" >
+        input = #{input,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="output != null" >
+        output = #{output,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+    update record
+    set state = #{state,jdbcType=INTEGER},
+      owner = #{owner,jdbcType=VARCHAR},
+      input = #{input,jdbcType=LONGVARCHAR},
+      output = #{output,jdbcType=LONGVARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Record" >
+    update record
+    set state = #{state,jdbcType=INTEGER},
+      owner = #{owner,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+</mapper>

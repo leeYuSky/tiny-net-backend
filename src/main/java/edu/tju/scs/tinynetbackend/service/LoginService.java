@@ -1,5 +1,6 @@
 package edu.tju.scs.tinynetbackend.service;
 
+import edu.tju.scs.tinynetbackend.common.FileHelper;
 import edu.tju.scs.tinynetbackend.domain.User;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
@@ -44,6 +45,7 @@ public class LoginService  {
             user.setUsername(username);
             user.setPassword(password);
             userMapper.insert(user);
+            FileHelper.createUser(username);
             return new ErrorReport(0, "success");
         } else {
             return new ErrorReport(3, "duplication error");
