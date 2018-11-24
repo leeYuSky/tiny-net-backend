@@ -46,4 +46,9 @@ public class AuthController {
     public ErrorReport doLogout(String username){
         return loginService.logout();
     }
+
+    @RequestMapping(value = "/tinyNet/auth/adminmodify",method = RequestMethod.POST)
+    public ErrorReport adminmodify(String username,String password){
+        return loginService.adminmodify(username,password);
+    }
 }

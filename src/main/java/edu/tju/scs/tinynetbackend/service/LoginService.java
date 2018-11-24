@@ -96,12 +96,46 @@ public class LoginService  {
             return false;
     }
 
+    public boolean checkAdmin()
+    {
+        if(isLogin()==false)
+            return false;
+        String name = loginUser();
+        User user = userMapper.selectByPrimaryKey(name);
+        if(user.getType()==1)
+            return  true;
+        else
+            return false;
+    }
+
     public ErrorReport logout() {
         if (httpSession.getAttribute("user") == null){
             return  new ErrorReport(4, "not login");
         }
         httpSession.setAttribute("user", null);
         return new ErrorReport(0, "success");
+    }
+
+    public ErrorReport adminmodify(String username, String passowrd)
+    {
+        if(checkAdmin())
+        {
+            if(userMapper.exsit(username) >0)
+            {
+                User user = new User();
+                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                passowrd = passwordEncoder.encode(passowrd);
+                user.setPassword(passowrd);
+                user.setUsername(username);
+                return new ErrorReport(0, "success");
+            }
+            else
+                return new ErrorReport(5, "no such user");
+
+
+        }
+        else
+            return new ErrorReport(6, "not admin");
     }
 
     public HttpSession getHttpSession() {
