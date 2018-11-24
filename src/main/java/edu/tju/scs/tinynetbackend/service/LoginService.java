@@ -53,7 +53,7 @@ public class LoginService  {
     public ErrorReport update(String username, String olepassword, String newpassword){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         olepassword = passwordEncoder.encode(olepassword);
-        if ( userMapper.exsit(username) >0) {
+        if ( userMapper.exsit(username) >0 && checkUser(username)) {
 
             User user = userMapper.selectByPrimaryKey(username);
             if(passwordEncoder.matches(olepassword, user.getPassword()))

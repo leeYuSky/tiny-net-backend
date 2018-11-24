@@ -1,32 +1,33 @@
 package edu.tju.scs.tinynetbackend.domain;
-
+//电池
 public class Battery {
+    //主键
     private Integer id;
-
+    //型号名称
     private String name;
-
+    //额定电压（V）
     private Double eddy;
-
+    //循环充放电效率（%）
     private Double xhcfdxl;
-
+    //最大充电速率
     private Double zdcdsl;
-
+    //最大充电电流（A）
     private Double zdcddl;
-
+    //最大放电速率
     private Double zdfdsl;
-
+    //电池容量（Ah）
     private Double dcrl;
-
+    //寿命（年）
     private Double life;
-
+    //全寿命放电量（kWh）
     private Double qsmfd;
-
+    //串联个数
     private Integer clgs;
-
+    //制造商
     private String factory;
-
+    //类型：0—交流 1-直流
     private Integer type;
-
+    //个数
     private Integer capacity1;
 
     private Integer capacity2;
@@ -34,7 +35,7 @@ public class Battery {
     private Integer capacity3;
 
     private Integer capacity4;
-
+    //初建成本
     private Double cjcb1;
 
     private Double cjcb2;
@@ -42,7 +43,7 @@ public class Battery {
     private Double cjcb3;
 
     private Double cjcb4;
-
+    //更新成本
     private Double gxcb1;
 
     private Double gxcb2;
@@ -50,7 +51,7 @@ public class Battery {
     private Double gxcb3;
 
     private Double gxcb4;
-
+    //运行维护成本
     private Double yxwhcb1;
 
     private Double yxwhcb2;
@@ -58,7 +59,7 @@ public class Battery {
     private Double yxwhcb3;
 
     private Double yxwhcb4;
-
+    //所有者（即username）
     private String owner;
 
     public Integer getId() {
