@@ -47,9 +47,10 @@ public class RecordList {
         }
     }
 
-    public static void add(Record record)
+    public static void add(RecordWithBLOBs record)
     {
         FileHelper.newRecord(record);
+        FileHelper.setIO(record);
         RecordInfo recordInfo=new RecordInfo(record.getName(),record.getOwner());
         recordInfo.setRuntime(Runtime.getRuntime());
 
