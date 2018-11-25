@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.tju.scs.tinynetbackend.mapper.TurbineMapper" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Turbine" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="edst" property="edst" jdbcType="DOUBLE" />
+    <result column="edgl" property="edgl" jdbcType="DOUBLE" />
+    <result column="sljxl" property="sljxl" jdbcType="DOUBLE" />
+    <result column="fdjxl" property="fdjxl" jdbcType="DOUBLE" />
+    <result column="life" property="life" jdbcType="DOUBLE" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="capacity1" property="capacity1" jdbcType="INTEGER" />
+    <result column="capacity2" property="capacity2" jdbcType="INTEGER" />
+    <result column="capacity3" property="capacity3" jdbcType="INTEGER" />
+    <result column="capacity4" property="capacity4" jdbcType="INTEGER" />
+    <result column="cjcb1" property="cjcb1" jdbcType="DOUBLE" />
+    <result column="cjcb2" property="cjcb2" jdbcType="DOUBLE" />
+    <result column="cjcb3" property="cjcb3" jdbcType="DOUBLE" />
+    <result column="cjcb4" property="cjcb4" jdbcType="DOUBLE" />
+    <result column="gxcb1" property="gxcb1" jdbcType="DOUBLE" />
+    <result column="gxcb2" property="gxcb2" jdbcType="DOUBLE" />
+    <result column="gxcb3" property="gxcb3" jdbcType="DOUBLE" />
+    <result column="gxcb4" property="gxcb4" jdbcType="DOUBLE" />
+    <result column="yxwhcb1" property="yxwhcb1" jdbcType="DOUBLE" />
+    <result column="yxwhcb2" property="yxwhcb2" jdbcType="DOUBLE" />
+    <result column="yxwhcb3" property="yxwhcb3" jdbcType="DOUBLE" />
+    <result column="yxwhcb4" property="yxwhcb4" jdbcType="DOUBLE" />
+    <result column="owner" property="owner" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, edst, edgl, sljxl, fdjxl, life, factory, capacity1, capacity2, capacity3, 
+    capacity4, cjcb1, cjcb2, cjcb3, cjcb4, gxcb1, gxcb2, gxcb3, gxcb4, yxwhcb1, yxwhcb2, 
+    yxwhcb3, yxwhcb4, owner
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from turbine
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByOwner" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from turbine
+    where owner = #{owner,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from turbine
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+    insert into turbine (name, edst,
+      edgl, sljxl, fdjxl, life, 
+      factory, capacity1, capacity2, 
+      capacity3, capacity4, cjcb1, 
+      cjcb2, cjcb3, cjcb4, gxcb1, 
+      gxcb2, gxcb3, gxcb4, yxwhcb1, 
+      yxwhcb2, yxwhcb3, yxwhcb4, 
+      owner)
+    values (#{name,jdbcType=VARCHAR}, #{edst,jdbcType=DOUBLE},
+      #{edgl,jdbcType=DOUBLE}, #{sljxl,jdbcType=DOUBLE}, #{fdjxl,jdbcType=DOUBLE}, #{life,jdbcType=DOUBLE}, 
+      #{factory,jdbcType=VARCHAR}, #{capacity1,jdbcType=INTEGER}, #{capacity2,jdbcType=INTEGER}, 
+      #{capacity3,jdbcType=INTEGER}, #{capacity4,jdbcType=INTEGER}, #{cjcb1,jdbcType=DOUBLE}, 
+      #{cjcb2,jdbcType=DOUBLE}, #{cjcb3,jdbcType=DOUBLE}, #{cjcb4,jdbcType=DOUBLE}, #{gxcb1,jdbcType=DOUBLE}, 
+      #{gxcb2,jdbcType=DOUBLE}, #{gxcb3,jdbcType=DOUBLE}, #{gxcb4,jdbcType=DOUBLE}, #{yxwhcb1,jdbcType=DOUBLE}, 
+      #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, #{yxwhcb4,jdbcType=DOUBLE}, 
+      #{owner,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+    insert into turbine
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="edst != null" >
+        edst,
+      </if>
+      <if test="edgl != null" >
+        edgl,
+      </if>
+      <if test="sljxl != null" >
+        sljxl,
+      </if>
+      <if test="fdjxl != null" >
+        fdjxl,
+      </if>
+      <if test="life != null" >
+        life,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="capacity1 != null" >
+        capacity1,
+      </if>
+      <if test="capacity2 != null" >
+        capacity2,
+      </if>
+      <if test="capacity3 != null" >
+        capacity3,
+      </if>
+      <if test="capacity4 != null" >
+        capacity4,
+      </if>
+      <if test="cjcb1 != null" >
+        cjcb1,
+      </if>
+      <if test="cjcb2 != null" >
+        cjcb2,
+      </if>
+      <if test="cjcb3 != null" >
+        cjcb3,
+      </if>
+      <if test="cjcb4 != null" >
+        cjcb4,
+      </if>
+      <if test="gxcb1 != null" >
+        gxcb1,
+      </if>
+      <if test="gxcb2 != null" >
+        gxcb2,
+      </if>
+      <if test="gxcb3 != null" >
+        gxcb3,
+      </if>
+      <if test="gxcb4 != null" >
+        gxcb4,
+      </if>
+      <if test="yxwhcb1 != null" >
+        yxwhcb1,
+      </if>
+      <if test="yxwhcb2 != null" >
+        yxwhcb2,
+      </if>
+      <if test="yxwhcb3 != null" >
+        yxwhcb3,
+      </if>
+      <if test="yxwhcb4 != null" >
+        yxwhcb4,
+      </if>
+      <if test="owner != null" >
+        owner,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="edst != null" >
+        #{edst,jdbcType=DOUBLE},
+      </if>
+      <if test="edgl != null" >
+        #{edgl,jdbcType=DOUBLE},
+      </if>
+      <if test="sljxl != null" >
+        #{sljxl,jdbcType=DOUBLE},
+      </if>
+      <if test="fdjxl != null" >
+        #{fdjxl,jdbcType=DOUBLE},
+      </if>
+      <if test="life != null" >
+        #{life,jdbcType=DOUBLE},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity1 != null" >
+        #{capacity1,jdbcType=INTEGER},
+      </if>
+      <if test="capacity2 != null" >
+        #{capacity2,jdbcType=INTEGER},
+      </if>
+      <if test="capacity3 != null" >
+        #{capacity3,jdbcType=INTEGER},
+      </if>
+      <if test="capacity4 != null" >
+        #{capacity4,jdbcType=INTEGER},
+      </if>
+      <if test="cjcb1 != null" >
+        #{cjcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb2 != null" >
+        #{cjcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb3 != null" >
+        #{cjcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb4 != null" >
+        #{cjcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb1 != null" >
+        #{gxcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb2 != null" >
+        #{gxcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb3 != null" >
+        #{gxcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb4 != null" >
+        #{gxcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb1 != null" >
+        #{yxwhcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb2 != null" >
+        #{yxwhcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb3 != null" >
+        #{yxwhcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb4 != null" >
+        #{yxwhcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="owner != null" >
+        #{owner,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+    update turbine
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="edst != null" >
+        edst = #{edst,jdbcType=DOUBLE},
+      </if>
+      <if test="edgl != null" >
+        edgl = #{edgl,jdbcType=DOUBLE},
+      </if>
+      <if test="sljxl != null" >
+        sljxl = #{sljxl,jdbcType=DOUBLE},
+      </if>
+      <if test="fdjxl != null" >
+        fdjxl = #{fdjxl,jdbcType=DOUBLE},
+      </if>
+      <if test="life != null" >
+        life = #{life,jdbcType=DOUBLE},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity1 != null" >
+        capacity1 = #{capacity1,jdbcType=INTEGER},
+      </if>
+      <if test="capacity2 != null" >
+        capacity2 = #{capacity2,jdbcType=INTEGER},
+      </if>
+      <if test="capacity3 != null" >
+        capacity3 = #{capacity3,jdbcType=INTEGER},
+      </if>
+      <if test="capacity4 != null" >
+        capacity4 = #{capacity4,jdbcType=INTEGER},
+      </if>
+      <if test="cjcb1 != null" >
+        cjcb1 = #{cjcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb2 != null" >
+        cjcb2 = #{cjcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb3 != null" >
+        cjcb3 = #{cjcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb4 != null" >
+        cjcb4 = #{cjcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb1 != null" >
+        gxcb1 = #{gxcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb2 != null" >
+        gxcb2 = #{gxcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb3 != null" >
+        gxcb3 = #{gxcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb4 != null" >
+        gxcb4 = #{gxcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb1 != null" >
+        yxwhcb1 = #{yxwhcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb2 != null" >
+        yxwhcb2 = #{yxwhcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb3 != null" >
+        yxwhcb3 = #{yxwhcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb4 != null" >
+        yxwhcb4 = #{yxwhcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="owner != null" >
+        owner = #{owner,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+    update turbine
+    set name = #{name,jdbcType=VARCHAR},
+      edst = #{edst,jdbcType=DOUBLE},
+      edgl = #{edgl,jdbcType=DOUBLE},
+      sljxl = #{sljxl,jdbcType=DOUBLE},
+      fdjxl = #{fdjxl,jdbcType=DOUBLE},
+      life = #{life,jdbcType=DOUBLE},
+      factory = #{factory,jdbcType=VARCHAR},
+      capacity1 = #{capacity1,jdbcType=INTEGER},
+      capacity2 = #{capacity2,jdbcType=INTEGER},
+      capacity3 = #{capacity3,jdbcType=INTEGER},
+      capacity4 = #{capacity4,jdbcType=INTEGER},
+      cjcb1 = #{cjcb1,jdbcType=DOUBLE},
+      cjcb2 = #{cjcb2,jdbcType=DOUBLE},
+      cjcb3 = #{cjcb3,jdbcType=DOUBLE},
+      cjcb4 = #{cjcb4,jdbcType=DOUBLE},
+      gxcb1 = #{gxcb1,jdbcType=DOUBLE},
+      gxcb2 = #{gxcb2,jdbcType=DOUBLE},
+      gxcb3 = #{gxcb3,jdbcType=DOUBLE},
+      gxcb4 = #{gxcb4,jdbcType=DOUBLE},
+      yxwhcb1 = #{yxwhcb1,jdbcType=DOUBLE},
+      yxwhcb2 = #{yxwhcb2,jdbcType=DOUBLE},
+      yxwhcb3 = #{yxwhcb3,jdbcType=DOUBLE},
+      yxwhcb4 = #{yxwhcb4,jdbcType=DOUBLE},
+      owner = #{owner,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
