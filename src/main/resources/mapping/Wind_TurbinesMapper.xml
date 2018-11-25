@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.tju.scs.tinynetbackend.mapper.Wind_TurbinesMapper" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="edgl" property="edgl" jdbcType="DOUBLE" />
+    <result column="fjlggd" property="fjlggd" jdbcType="DOUBLE" />
+    <result column="life" property="life" jdbcType="DOUBLE" />
+    <result column="factory" property="factory" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="glqxNum" property="glqxnum" jdbcType="INTEGER" />
+    <result column="fs1" property="fs1" jdbcType="DOUBLE" />
+    <result column="fs2" property="fs2" jdbcType="DOUBLE" />
+    <result column="fs3" property="fs3" jdbcType="DOUBLE" />
+    <result column="fs4" property="fs4" jdbcType="DOUBLE" />
+    <result column="fs5" property="fs5" jdbcType="DOUBLE" />
+    <result column="fs6" property="fs6" jdbcType="DOUBLE" />
+    <result column="fs7" property="fs7" jdbcType="DOUBLE" />
+    <result column="fs8" property="fs8" jdbcType="DOUBLE" />
+    <result column="fs9" property="fs9" jdbcType="DOUBLE" />
+    <result column="fs10" property="fs10" jdbcType="DOUBLE" />
+    <result column="fs11" property="fs11" jdbcType="DOUBLE" />
+    <result column="fs12" property="fs12" jdbcType="DOUBLE" />
+    <result column="fs13" property="fs13" jdbcType="DOUBLE" />
+    <result column="fs14" property="fs14" jdbcType="DOUBLE" />
+    <result column="fs15" property="fs15" jdbcType="DOUBLE" />
+    <result column="fs16" property="fs16" jdbcType="DOUBLE" />
+    <result column="fs17" property="fs17" jdbcType="DOUBLE" />
+    <result column="fs18" property="fs18" jdbcType="DOUBLE" />
+    <result column="fs19" property="fs19" jdbcType="DOUBLE" />
+    <result column="fs20" property="fs20" jdbcType="DOUBLE" />
+    <result column="gl1" property="gl1" jdbcType="DOUBLE" />
+    <result column="gl2" property="gl2" jdbcType="DOUBLE" />
+    <result column="gl3" property="gl3" jdbcType="DOUBLE" />
+    <result column="gl4" property="gl4" jdbcType="DOUBLE" />
+    <result column="gl5" property="gl5" jdbcType="DOUBLE" />
+    <result column="gl6" property="gl6" jdbcType="DOUBLE" />
+    <result column="gl7" property="gl7" jdbcType="DOUBLE" />
+    <result column="gl8" property="gl8" jdbcType="DOUBLE" />
+    <result column="gl9" property="gl9" jdbcType="DOUBLE" />
+    <result column="gl10" property="gl10" jdbcType="DOUBLE" />
+    <result column="gl11" property="gl11" jdbcType="DOUBLE" />
+    <result column="gl12" property="gl12" jdbcType="DOUBLE" />
+    <result column="gl13" property="gl13" jdbcType="DOUBLE" />
+    <result column="gl14" property="gl14" jdbcType="DOUBLE" />
+    <result column="gl15" property="gl15" jdbcType="DOUBLE" />
+    <result column="gl16" property="gl16" jdbcType="DOUBLE" />
+    <result column="gl17" property="gl17" jdbcType="DOUBLE" />
+    <result column="gl18" property="gl18" jdbcType="DOUBLE" />
+    <result column="gl19" property="gl19" jdbcType="DOUBLE" />
+    <result column="gl20" property="gl20" jdbcType="DOUBLE" />
+    <result column="capacity1" property="capacity1" jdbcType="INTEGER" />
+    <result column="capacity2" property="capacity2" jdbcType="INTEGER" />
+    <result column="capacity3" property="capacity3" jdbcType="INTEGER" />
+    <result column="capacity4" property="capacity4" jdbcType="DOUBLE" />
+    <result column="cjcb1" property="cjcb1" jdbcType="DOUBLE" />
+    <result column="cjcb2" property="cjcb2" jdbcType="DOUBLE" />
+    <result column="cjcb3" property="cjcb3" jdbcType="DOUBLE" />
+    <result column="cjcb4" property="cjcb4" jdbcType="DOUBLE" />
+    <result column="gxcb1" property="gxcb1" jdbcType="DOUBLE" />
+    <result column="gxcb2" property="gxcb2" jdbcType="DOUBLE" />
+    <result column="gxcb3" property="gxcb3" jdbcType="DOUBLE" />
+    <result column="gxcb4" property="gxcb4" jdbcType="DOUBLE" />
+    <result column="yxwhcb1" property="yxwhcb1" jdbcType="DOUBLE" />
+    <result column="yxwhcb2" property="yxwhcb2" jdbcType="DOUBLE" />
+    <result column="yxwhcb3" property="yxwhcb3" jdbcType="DOUBLE" />
+    <result column="yxwhcb4" property="yxwhcb4" jdbcType="DOUBLE" />
+    <result column="owner" property="owner" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, edgl, fjlggd, life, factory, type, glqxNum, fs1, fs2, fs3, fs4, fs5, fs6, 
+    fs7, fs8, fs9, fs10, fs11, fs12, fs13, fs14, fs15, fs16, fs17, fs18, fs19, fs20, 
+    gl1, gl2, gl3, gl4, gl5, gl6, gl7, gl8, gl9, gl10, gl11, gl12, gl13, gl14, gl15, 
+    gl16, gl17, gl18, gl19, gl20, capacity1, capacity2, capacity3, capacity4, cjcb1, 
+    cjcb2, cjcb3, cjcb4, gxcb1, gxcb2, gxcb3, gxcb4, yxwhcb1, yxwhcb2, yxwhcb3, yxwhcb4, 
+    owner
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wind_turbines
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByOwner" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from wind_turbines
+    where owner = #{owner,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wind_turbines
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+    insert into wind_turbines ( name, edgl,
+      fjlggd, life, factory, 
+      type, glqxNum, fs1, 
+      fs2, fs3, fs4, fs5, 
+      fs6, fs7, fs8, fs9, 
+      fs10, fs11, fs12, fs13, 
+      fs14, fs15, fs16, fs17, 
+      fs18, fs19, fs20, gl1, 
+      gl2, gl3, gl4, gl5, 
+      gl6, gl7, gl8, gl9, 
+      gl10, gl11, gl12, gl13, 
+      gl14, gl15, gl16, gl17, 
+      gl18, gl19, gl20, capacity1, 
+      capacity2, capacity3, capacity4, 
+      cjcb1, cjcb2, cjcb3, cjcb4, 
+      gxcb1, gxcb2, gxcb3, gxcb4, 
+      yxwhcb1, yxwhcb2, yxwhcb3, 
+      yxwhcb4, owner)
+    values (#{name,jdbcType=VARCHAR}, #{edgl,jdbcType=DOUBLE},
+      #{fjlggd,jdbcType=DOUBLE}, #{life,jdbcType=DOUBLE}, #{factory,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{glqxnum,jdbcType=INTEGER}, #{fs1,jdbcType=DOUBLE}, 
+      #{fs2,jdbcType=DOUBLE}, #{fs3,jdbcType=DOUBLE}, #{fs4,jdbcType=DOUBLE}, #{fs5,jdbcType=DOUBLE}, 
+      #{fs6,jdbcType=DOUBLE}, #{fs7,jdbcType=DOUBLE}, #{fs8,jdbcType=DOUBLE}, #{fs9,jdbcType=DOUBLE}, 
+      #{fs10,jdbcType=DOUBLE}, #{fs11,jdbcType=DOUBLE}, #{fs12,jdbcType=DOUBLE}, #{fs13,jdbcType=DOUBLE}, 
+      #{fs14,jdbcType=DOUBLE}, #{fs15,jdbcType=DOUBLE}, #{fs16,jdbcType=DOUBLE}, #{fs17,jdbcType=DOUBLE}, 
+      #{fs18,jdbcType=DOUBLE}, #{fs19,jdbcType=DOUBLE}, #{fs20,jdbcType=DOUBLE}, #{gl1,jdbcType=DOUBLE}, 
+      #{gl2,jdbcType=DOUBLE}, #{gl3,jdbcType=DOUBLE}, #{gl4,jdbcType=DOUBLE}, #{gl5,jdbcType=DOUBLE}, 
+      #{gl6,jdbcType=DOUBLE}, #{gl7,jdbcType=DOUBLE}, #{gl8,jdbcType=DOUBLE}, #{gl9,jdbcType=DOUBLE}, 
+      #{gl10,jdbcType=DOUBLE}, #{gl11,jdbcType=DOUBLE}, #{gl12,jdbcType=DOUBLE}, #{gl13,jdbcType=DOUBLE}, 
+      #{gl14,jdbcType=DOUBLE}, #{gl15,jdbcType=DOUBLE}, #{gl16,jdbcType=DOUBLE}, #{gl17,jdbcType=DOUBLE}, 
+      #{gl18,jdbcType=DOUBLE}, #{gl19,jdbcType=DOUBLE}, #{gl20,jdbcType=DOUBLE}, #{capacity1,jdbcType=INTEGER}, 
+      #{capacity2,jdbcType=INTEGER}, #{capacity3,jdbcType=INTEGER}, #{capacity4,jdbcType=DOUBLE}, 
+      #{cjcb1,jdbcType=DOUBLE}, #{cjcb2,jdbcType=DOUBLE}, #{cjcb3,jdbcType=DOUBLE}, #{cjcb4,jdbcType=DOUBLE}, 
+      #{gxcb1,jdbcType=DOUBLE}, #{gxcb2,jdbcType=DOUBLE}, #{gxcb3,jdbcType=DOUBLE}, #{gxcb4,jdbcType=DOUBLE}, 
+      #{yxwhcb1,jdbcType=DOUBLE}, #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, 
+      #{yxwhcb4,jdbcType=DOUBLE}, #{owner,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+    insert into wind_turbines
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="edgl != null" >
+        edgl,
+      </if>
+      <if test="fjlggd != null" >
+        fjlggd,
+      </if>
+      <if test="life != null" >
+        life,
+      </if>
+      <if test="factory != null" >
+        factory,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="glqxnum != null" >
+        glqxNum,
+      </if>
+      <if test="fs1 != null" >
+        fs1,
+      </if>
+      <if test="fs2 != null" >
+        fs2,
+      </if>
+      <if test="fs3 != null" >
+        fs3,
+      </if>
+      <if test="fs4 != null" >
+        fs4,
+      </if>
+      <if test="fs5 != null" >
+        fs5,
+      </if>
+      <if test="fs6 != null" >
+        fs6,
+      </if>
+      <if test="fs7 != null" >
+        fs7,
+      </if>
+      <if test="fs8 != null" >
+        fs8,
+      </if>
+      <if test="fs9 != null" >
+        fs9,
+      </if>
+      <if test="fs10 != null" >
+        fs10,
+      </if>
+      <if test="fs11 != null" >
+        fs11,
+      </if>
+      <if test="fs12 != null" >
+        fs12,
+      </if>
+      <if test="fs13 != null" >
+        fs13,
+      </if>
+      <if test="fs14 != null" >
+        fs14,
+      </if>
+      <if test="fs15 != null" >
+        fs15,
+      </if>
+      <if test="fs16 != null" >
+        fs16,
+      </if>
+      <if test="fs17 != null" >
+        fs17,
+      </if>
+      <if test="fs18 != null" >
+        fs18,
+      </if>
+      <if test="fs19 != null" >
+        fs19,
+      </if>
+      <if test="fs20 != null" >
+        fs20,
+      </if>
+      <if test="gl1 != null" >
+        gl1,
+      </if>
+      <if test="gl2 != null" >
+        gl2,
+      </if>
+      <if test="gl3 != null" >
+        gl3,
+      </if>
+      <if test="gl4 != null" >
+        gl4,
+      </if>
+      <if test="gl5 != null" >
+        gl5,
+      </if>
+      <if test="gl6 != null" >
+        gl6,
+      </if>
+      <if test="gl7 != null" >
+        gl7,
+      </if>
+      <if test="gl8 != null" >
+        gl8,
+      </if>
+      <if test="gl9 != null" >
+        gl9,
+      </if>
+      <if test="gl10 != null" >
+        gl10,
+      </if>
+      <if test="gl11 != null" >
+        gl11,
+      </if>
+      <if test="gl12 != null" >
+        gl12,
+      </if>
+      <if test="gl13 != null" >
+        gl13,
+      </if>
+      <if test="gl14 != null" >
+        gl14,
+      </if>
+      <if test="gl15 != null" >
+        gl15,
+      </if>
+      <if test="gl16 != null" >
+        gl16,
+      </if>
+      <if test="gl17 != null" >
+        gl17,
+      </if>
+      <if test="gl18 != null" >
+        gl18,
+      </if>
+      <if test="gl19 != null" >
+        gl19,
+      </if>
+      <if test="gl20 != null" >
+        gl20,
+      </if>
+      <if test="capacity1 != null" >
+        capacity1,
+      </if>
+      <if test="capacity2 != null" >
+        capacity2,
+      </if>
+      <if test="capacity3 != null" >
+        capacity3,
+      </if>
+      <if test="capacity4 != null" >
+        capacity4,
+      </if>
+      <if test="cjcb1 != null" >
+        cjcb1,
+      </if>
+      <if test="cjcb2 != null" >
+        cjcb2,
+      </if>
+      <if test="cjcb3 != null" >
+        cjcb3,
+      </if>
+      <if test="cjcb4 != null" >
+        cjcb4,
+      </if>
+      <if test="gxcb1 != null" >
+        gxcb1,
+      </if>
+      <if test="gxcb2 != null" >
+        gxcb2,
+      </if>
+      <if test="gxcb3 != null" >
+        gxcb3,
+      </if>
+      <if test="gxcb4 != null" >
+        gxcb4,
+      </if>
+      <if test="yxwhcb1 != null" >
+        yxwhcb1,
+      </if>
+      <if test="yxwhcb2 != null" >
+        yxwhcb2,
+      </if>
+      <if test="yxwhcb3 != null" >
+        yxwhcb3,
+      </if>
+      <if test="yxwhcb4 != null" >
+        yxwhcb4,
+      </if>
+      <if test="owner != null" >
+        owner,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="edgl != null" >
+        #{edgl,jdbcType=DOUBLE},
+      </if>
+      <if test="fjlggd != null" >
+        #{fjlggd,jdbcType=DOUBLE},
+      </if>
+      <if test="life != null" >
+        #{life,jdbcType=DOUBLE},
+      </if>
+      <if test="factory != null" >
+        #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="glqxnum != null" >
+        #{glqxnum,jdbcType=INTEGER},
+      </if>
+      <if test="fs1 != null" >
+        #{fs1,jdbcType=DOUBLE},
+      </if>
+      <if test="fs2 != null" >
+        #{fs2,jdbcType=DOUBLE},
+      </if>
+      <if test="fs3 != null" >
+        #{fs3,jdbcType=DOUBLE},
+      </if>
+      <if test="fs4 != null" >
+        #{fs4,jdbcType=DOUBLE},
+      </if>
+      <if test="fs5 != null" >
+        #{fs5,jdbcType=DOUBLE},
+      </if>
+      <if test="fs6 != null" >
+        #{fs6,jdbcType=DOUBLE},
+      </if>
+      <if test="fs7 != null" >
+        #{fs7,jdbcType=DOUBLE},
+      </if>
+      <if test="fs8 != null" >
+        #{fs8,jdbcType=DOUBLE},
+      </if>
+      <if test="fs9 != null" >
+        #{fs9,jdbcType=DOUBLE},
+      </if>
+      <if test="fs10 != null" >
+        #{fs10,jdbcType=DOUBLE},
+      </if>
+      <if test="fs11 != null" >
+        #{fs11,jdbcType=DOUBLE},
+      </if>
+      <if test="fs12 != null" >
+        #{fs12,jdbcType=DOUBLE},
+      </if>
+      <if test="fs13 != null" >
+        #{fs13,jdbcType=DOUBLE},
+      </if>
+      <if test="fs14 != null" >
+        #{fs14,jdbcType=DOUBLE},
+      </if>
+      <if test="fs15 != null" >
+        #{fs15,jdbcType=DOUBLE},
+      </if>
+      <if test="fs16 != null" >
+        #{fs16,jdbcType=DOUBLE},
+      </if>
+      <if test="fs17 != null" >
+        #{fs17,jdbcType=DOUBLE},
+      </if>
+      <if test="fs18 != null" >
+        #{fs18,jdbcType=DOUBLE},
+      </if>
+      <if test="fs19 != null" >
+        #{fs19,jdbcType=DOUBLE},
+      </if>
+      <if test="fs20 != null" >
+        #{fs20,jdbcType=DOUBLE},
+      </if>
+      <if test="gl1 != null" >
+        #{gl1,jdbcType=DOUBLE},
+      </if>
+      <if test="gl2 != null" >
+        #{gl2,jdbcType=DOUBLE},
+      </if>
+      <if test="gl3 != null" >
+        #{gl3,jdbcType=DOUBLE},
+      </if>
+      <if test="gl4 != null" >
+        #{gl4,jdbcType=DOUBLE},
+      </if>
+      <if test="gl5 != null" >
+        #{gl5,jdbcType=DOUBLE},
+      </if>
+      <if test="gl6 != null" >
+        #{gl6,jdbcType=DOUBLE},
+      </if>
+      <if test="gl7 != null" >
+        #{gl7,jdbcType=DOUBLE},
+      </if>
+      <if test="gl8 != null" >
+        #{gl8,jdbcType=DOUBLE},
+      </if>
+      <if test="gl9 != null" >
+        #{gl9,jdbcType=DOUBLE},
+      </if>
+      <if test="gl10 != null" >
+        #{gl10,jdbcType=DOUBLE},
+      </if>
+      <if test="gl11 != null" >
+        #{gl11,jdbcType=DOUBLE},
+      </if>
+      <if test="gl12 != null" >
+        #{gl12,jdbcType=DOUBLE},
+      </if>
+      <if test="gl13 != null" >
+        #{gl13,jdbcType=DOUBLE},
+      </if>
+      <if test="gl14 != null" >
+        #{gl14,jdbcType=DOUBLE},
+      </if>
+      <if test="gl15 != null" >
+        #{gl15,jdbcType=DOUBLE},
+      </if>
+      <if test="gl16 != null" >
+        #{gl16,jdbcType=DOUBLE},
+      </if>
+      <if test="gl17 != null" >
+        #{gl17,jdbcType=DOUBLE},
+      </if>
+      <if test="gl18 != null" >
+        #{gl18,jdbcType=DOUBLE},
+      </if>
+      <if test="gl19 != null" >
+        #{gl19,jdbcType=DOUBLE},
+      </if>
+      <if test="gl20 != null" >
+        #{gl20,jdbcType=DOUBLE},
+      </if>
+      <if test="capacity1 != null" >
+        #{capacity1,jdbcType=INTEGER},
+      </if>
+      <if test="capacity2 != null" >
+        #{capacity2,jdbcType=INTEGER},
+      </if>
+      <if test="capacity3 != null" >
+        #{capacity3,jdbcType=INTEGER},
+      </if>
+      <if test="capacity4 != null" >
+        #{capacity4,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb1 != null" >
+        #{cjcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb2 != null" >
+        #{cjcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb3 != null" >
+        #{cjcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb4 != null" >
+        #{cjcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb1 != null" >
+        #{gxcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb2 != null" >
+        #{gxcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb3 != null" >
+        #{gxcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb4 != null" >
+        #{gxcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb1 != null" >
+        #{yxwhcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb2 != null" >
+        #{yxwhcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb3 != null" >
+        #{yxwhcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb4 != null" >
+        #{yxwhcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="owner != null" >
+        #{owner,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+    update wind_turbines
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="edgl != null" >
+        edgl = #{edgl,jdbcType=DOUBLE},
+      </if>
+      <if test="fjlggd != null" >
+        fjlggd = #{fjlggd,jdbcType=DOUBLE},
+      </if>
+      <if test="life != null" >
+        life = #{life,jdbcType=DOUBLE},
+      </if>
+      <if test="factory != null" >
+        factory = #{factory,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="glqxnum != null" >
+        glqxNum = #{glqxnum,jdbcType=INTEGER},
+      </if>
+      <if test="fs1 != null" >
+        fs1 = #{fs1,jdbcType=DOUBLE},
+      </if>
+      <if test="fs2 != null" >
+        fs2 = #{fs2,jdbcType=DOUBLE},
+      </if>
+      <if test="fs3 != null" >
+        fs3 = #{fs3,jdbcType=DOUBLE},
+      </if>
+      <if test="fs4 != null" >
+        fs4 = #{fs4,jdbcType=DOUBLE},
+      </if>
+      <if test="fs5 != null" >
+        fs5 = #{fs5,jdbcType=DOUBLE},
+      </if>
+      <if test="fs6 != null" >
+        fs6 = #{fs6,jdbcType=DOUBLE},
+      </if>
+      <if test="fs7 != null" >
+        fs7 = #{fs7,jdbcType=DOUBLE},
+      </if>
+      <if test="fs8 != null" >
+        fs8 = #{fs8,jdbcType=DOUBLE},
+      </if>
+      <if test="fs9 != null" >
+        fs9 = #{fs9,jdbcType=DOUBLE},
+      </if>
+      <if test="fs10 != null" >
+        fs10 = #{fs10,jdbcType=DOUBLE},
+      </if>
+      <if test="fs11 != null" >
+        fs11 = #{fs11,jdbcType=DOUBLE},
+      </if>
+      <if test="fs12 != null" >
+        fs12 = #{fs12,jdbcType=DOUBLE},
+      </if>
+      <if test="fs13 != null" >
+        fs13 = #{fs13,jdbcType=DOUBLE},
+      </if>
+      <if test="fs14 != null" >
+        fs14 = #{fs14,jdbcType=DOUBLE},
+      </if>
+      <if test="fs15 != null" >
+        fs15 = #{fs15,jdbcType=DOUBLE},
+      </if>
+      <if test="fs16 != null" >
+        fs16 = #{fs16,jdbcType=DOUBLE},
+      </if>
+      <if test="fs17 != null" >
+        fs17 = #{fs17,jdbcType=DOUBLE},
+      </if>
+      <if test="fs18 != null" >
+        fs18 = #{fs18,jdbcType=DOUBLE},
+      </if>
+      <if test="fs19 != null" >
+        fs19 = #{fs19,jdbcType=DOUBLE},
+      </if>
+      <if test="fs20 != null" >
+        fs20 = #{fs20,jdbcType=DOUBLE},
+      </if>
+      <if test="gl1 != null" >
+        gl1 = #{gl1,jdbcType=DOUBLE},
+      </if>
+      <if test="gl2 != null" >
+        gl2 = #{gl2,jdbcType=DOUBLE},
+      </if>
+      <if test="gl3 != null" >
+        gl3 = #{gl3,jdbcType=DOUBLE},
+      </if>
+      <if test="gl4 != null" >
+        gl4 = #{gl4,jdbcType=DOUBLE},
+      </if>
+      <if test="gl5 != null" >
+        gl5 = #{gl5,jdbcType=DOUBLE},
+      </if>
+      <if test="gl6 != null" >
+        gl6 = #{gl6,jdbcType=DOUBLE},
+      </if>
+      <if test="gl7 != null" >
+        gl7 = #{gl7,jdbcType=DOUBLE},
+      </if>
+      <if test="gl8 != null" >
+        gl8 = #{gl8,jdbcType=DOUBLE},
+      </if>
+      <if test="gl9 != null" >
+        gl9 = #{gl9,jdbcType=DOUBLE},
+      </if>
+      <if test="gl10 != null" >
+        gl10 = #{gl10,jdbcType=DOUBLE},
+      </if>
+      <if test="gl11 != null" >
+        gl11 = #{gl11,jdbcType=DOUBLE},
+      </if>
+      <if test="gl12 != null" >
+        gl12 = #{gl12,jdbcType=DOUBLE},
+      </if>
+      <if test="gl13 != null" >
+        gl13 = #{gl13,jdbcType=DOUBLE},
+      </if>
+      <if test="gl14 != null" >
+        gl14 = #{gl14,jdbcType=DOUBLE},
+      </if>
+      <if test="gl15 != null" >
+        gl15 = #{gl15,jdbcType=DOUBLE},
+      </if>
+      <if test="gl16 != null" >
+        gl16 = #{gl16,jdbcType=DOUBLE},
+      </if>
+      <if test="gl17 != null" >
+        gl17 = #{gl17,jdbcType=DOUBLE},
+      </if>
+      <if test="gl18 != null" >
+        gl18 = #{gl18,jdbcType=DOUBLE},
+      </if>
+      <if test="gl19 != null" >
+        gl19 = #{gl19,jdbcType=DOUBLE},
+      </if>
+      <if test="gl20 != null" >
+        gl20 = #{gl20,jdbcType=DOUBLE},
+      </if>
+      <if test="capacity1 != null" >
+        capacity1 = #{capacity1,jdbcType=INTEGER},
+      </if>
+      <if test="capacity2 != null" >
+        capacity2 = #{capacity2,jdbcType=INTEGER},
+      </if>
+      <if test="capacity3 != null" >
+        capacity3 = #{capacity3,jdbcType=INTEGER},
+      </if>
+      <if test="capacity4 != null" >
+        capacity4 = #{capacity4,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb1 != null" >
+        cjcb1 = #{cjcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb2 != null" >
+        cjcb2 = #{cjcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb3 != null" >
+        cjcb3 = #{cjcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="cjcb4 != null" >
+        cjcb4 = #{cjcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb1 != null" >
+        gxcb1 = #{gxcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb2 != null" >
+        gxcb2 = #{gxcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb3 != null" >
+        gxcb3 = #{gxcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="gxcb4 != null" >
+        gxcb4 = #{gxcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb1 != null" >
+        yxwhcb1 = #{yxwhcb1,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb2 != null" >
+        yxwhcb2 = #{yxwhcb2,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb3 != null" >
+        yxwhcb3 = #{yxwhcb3,jdbcType=DOUBLE},
+      </if>
+      <if test="yxwhcb4 != null" >
+        yxwhcb4 = #{yxwhcb4,jdbcType=DOUBLE},
+      </if>
+      <if test="owner != null" >
+        owner = #{owner,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+    update wind_turbines
+    set name = #{name,jdbcType=VARCHAR},
+      edgl = #{edgl,jdbcType=DOUBLE},
+      fjlggd = #{fjlggd,jdbcType=DOUBLE},
+      life = #{life,jdbcType=DOUBLE},
+      factory = #{factory,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      glqxNum = #{glqxnum,jdbcType=INTEGER},
+      fs1 = #{fs1,jdbcType=DOUBLE},
+      fs2 = #{fs2,jdbcType=DOUBLE},
+      fs3 = #{fs3,jdbcType=DOUBLE},
+      fs4 = #{fs4,jdbcType=DOUBLE},
+      fs5 = #{fs5,jdbcType=DOUBLE},
+      fs6 = #{fs6,jdbcType=DOUBLE},
+      fs7 = #{fs7,jdbcType=DOUBLE},
+      fs8 = #{fs8,jdbcType=DOUBLE},
+      fs9 = #{fs9,jdbcType=DOUBLE},
+      fs10 = #{fs10,jdbcType=DOUBLE},
+      fs11 = #{fs11,jdbcType=DOUBLE},
+      fs12 = #{fs12,jdbcType=DOUBLE},
+      fs13 = #{fs13,jdbcType=DOUBLE},
+      fs14 = #{fs14,jdbcType=DOUBLE},
+      fs15 = #{fs15,jdbcType=DOUBLE},
+      fs16 = #{fs16,jdbcType=DOUBLE},
+      fs17 = #{fs17,jdbcType=DOUBLE},
+      fs18 = #{fs18,jdbcType=DOUBLE},
+      fs19 = #{fs19,jdbcType=DOUBLE},
+      fs20 = #{fs20,jdbcType=DOUBLE},
+      gl1 = #{gl1,jdbcType=DOUBLE},
+      gl2 = #{gl2,jdbcType=DOUBLE},
+      gl3 = #{gl3,jdbcType=DOUBLE},
+      gl4 = #{gl4,jdbcType=DOUBLE},
+      gl5 = #{gl5,jdbcType=DOUBLE},
+      gl6 = #{gl6,jdbcType=DOUBLE},
+      gl7 = #{gl7,jdbcType=DOUBLE},
+      gl8 = #{gl8,jdbcType=DOUBLE},
+      gl9 = #{gl9,jdbcType=DOUBLE},
+      gl10 = #{gl10,jdbcType=DOUBLE},
+      gl11 = #{gl11,jdbcType=DOUBLE},
+      gl12 = #{gl12,jdbcType=DOUBLE},
+      gl13 = #{gl13,jdbcType=DOUBLE},
+      gl14 = #{gl14,jdbcType=DOUBLE},
+      gl15 = #{gl15,jdbcType=DOUBLE},
+      gl16 = #{gl16,jdbcType=DOUBLE},
+      gl17 = #{gl17,jdbcType=DOUBLE},
+      gl18 = #{gl18,jdbcType=DOUBLE},
+      gl19 = #{gl19,jdbcType=DOUBLE},
+      gl20 = #{gl20,jdbcType=DOUBLE},
+      capacity1 = #{capacity1,jdbcType=INTEGER},
+      capacity2 = #{capacity2,jdbcType=INTEGER},
+      capacity3 = #{capacity3,jdbcType=INTEGER},
+      capacity4 = #{capacity4,jdbcType=DOUBLE},
+      cjcb1 = #{cjcb1,jdbcType=DOUBLE},
+      cjcb2 = #{cjcb2,jdbcType=DOUBLE},
+      cjcb3 = #{cjcb3,jdbcType=DOUBLE},
+      cjcb4 = #{cjcb4,jdbcType=DOUBLE},
+      gxcb1 = #{gxcb1,jdbcType=DOUBLE},
+      gxcb2 = #{gxcb2,jdbcType=DOUBLE},
+      gxcb3 = #{gxcb3,jdbcType=DOUBLE},
+      gxcb4 = #{gxcb4,jdbcType=DOUBLE},
+      yxwhcb1 = #{yxwhcb1,jdbcType=DOUBLE},
+      yxwhcb2 = #{yxwhcb2,jdbcType=DOUBLE},
+      yxwhcb3 = #{yxwhcb3,jdbcType=DOUBLE},
+      yxwhcb4 = #{yxwhcb4,jdbcType=DOUBLE},
+      owner = #{owner,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
