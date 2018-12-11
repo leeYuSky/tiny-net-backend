@@ -1,6 +1,6 @@
 package edu.tju.scs.tinynetbackend.mapper;
 
-import edu.tju.scs.tinynetbackend.domain.Wind_Turbines;
+import edu.tju.scs.tinynetbackend.po.Wind_Turbines;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

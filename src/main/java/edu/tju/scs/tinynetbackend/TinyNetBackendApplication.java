@@ -1,13 +1,11 @@
 package edu.tju.scs.tinynetbackend;
 
-import edu.tju.scs.tinynetbackend.controller.AuthController;
-import edu.tju.scs.tinynetbackend.domain.User;
+import edu.tju.scs.tinynetbackend.po.User;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

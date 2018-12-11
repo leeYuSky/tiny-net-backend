@@ -1,11 +1,7 @@
 package edu.tju.scs.tinynetbackend.mapper;
 
-import edu.tju.scs.tinynetbackend.domain.User;
+import edu.tju.scs.tinynetbackend.po.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface UserMapper {
@@ -18,7 +14,7 @@ public interface UserMapper {
 
     User selectByPrimaryKey(String username);
 
-    long exsit(String username);
+    long exist(String username);
 
     int updateByPrimaryKeySelective(User record);
 

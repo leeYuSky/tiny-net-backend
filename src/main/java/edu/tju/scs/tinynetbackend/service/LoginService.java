@@ -1,10 +1,9 @@
 package edu.tju.scs.tinynetbackend.service;
 
 import edu.tju.scs.tinynetbackend.common.FileHelper;
-import edu.tju.scs.tinynetbackend.domain.User;
+import edu.tju.scs.tinynetbackend.po.User;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class LoginService  {
 
     public ErrorReport login(String username, String password){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        if(userMapper.exsit(username)>0)
+        if(userMapper.exist(username)>0)
         {
             User user = userMapper.selectByPrimaryKey(username);
             if(passwordEncoder.matches(password, user.getPassword()))
@@ -40,7 +39,7 @@ public class LoginService  {
     public ErrorReport reg(String username, String password){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         password = passwordEncoder.encode(password);
-        if ( userMapper.exsit(username) ==0) {
+        if ( userMapper.exist(username) ==0) {
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
@@ -55,7 +54,7 @@ public class LoginService  {
     public ErrorReport update(String username, String olepassword, String newpassword){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         olepassword = passwordEncoder.encode(olepassword);
-        if ( userMapper.exsit(username) >0 && checkUser(username)) {
+        if ( userMapper.exist(username) >0 && checkUser(username)) {
 
             User user = userMapper.selectByPrimaryKey(username);
             if(passwordEncoder.matches(olepassword, user.getPassword()))
@@ -122,7 +121,7 @@ public class LoginService  {
     {
         if(checkAdmin())
         {
-            if(userMapper.exsit(username) >0)
+            if(userMapper.exist(username) >0)
             {
                 User user = new User();
                 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

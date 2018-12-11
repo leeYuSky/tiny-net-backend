@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.GeneratorMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Generator" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.Generator" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="edgl" property="edgl" jdbcType="DOUBLE" />
@@ -65,7 +65,7 @@
     delete from generator
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.Generator" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.Generator" >
     insert into generator (name, edgl,
       zdfzl, zxyysj, life, factory, 
       co2, co, wrsdqhhw, klw, 
@@ -89,7 +89,7 @@
       #{yxwhcb1,jdbcType=DOUBLE}, #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, 
       #{yxwhcb4,jdbcType=DOUBLE}, #{owner,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.Generator" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.Generator" >
     insert into generator
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -324,7 +324,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.Generator" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.Generator" >
     update generator
     <set >
       <if test="name != null" >
@@ -441,7 +441,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Generator" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.Generator" >
     update generator
     set name = #{name,jdbcType=VARCHAR},
       edgl = #{edgl,jdbcType=DOUBLE},

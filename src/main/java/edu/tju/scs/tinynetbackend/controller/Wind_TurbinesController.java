@@ -1,7 +1,7 @@
 package edu.tju.scs.tinynetbackend.controller;
 
 
-import edu.tju.scs.tinynetbackend.domain.Wind_Turbines;
+import edu.tju.scs.tinynetbackend.po.Wind_Turbines;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.dto.ResponseObjectData;
 import edu.tju.scs.tinynetbackend.mapper.Wind_TurbinesMapper;

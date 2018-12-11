@@ -2,10 +2,9 @@ package edu.tju.scs.tinynetbackend.controller;
 
 
 import edu.tju.scs.tinynetbackend.common.RecordList;
-import edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs;
+import edu.tju.scs.tinynetbackend.po.RecordWithBLOBs;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.dto.ResponseObjectData;
-import edu.tju.scs.tinynetbackend.mapper.BatteryMapper;
 import edu.tju.scs.tinynetbackend.mapper.RecordMapper;
 import edu.tju.scs.tinynetbackend.service.LoginService;
 import org.apache.ibatis.annotations.Mapper;

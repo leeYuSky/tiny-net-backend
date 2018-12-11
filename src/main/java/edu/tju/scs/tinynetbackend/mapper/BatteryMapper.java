@@ -1,6 +1,6 @@
 package edu.tju.scs.tinynetbackend.mapper;
 
-import edu.tju.scs.tinynetbackend.domain.Battery;
+import edu.tju.scs.tinynetbackend.po.Battery;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

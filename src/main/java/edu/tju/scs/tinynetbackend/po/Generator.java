@@ -1,21 +1,47 @@
-package edu.tju.scs.tinynetbackend.domain;
-//水轮机
-public class Turbine {
+package edu.tju.scs.tinynetbackend.po;
+
+public class Generator {
     private Integer id;
 
     private String name;
-    //额定水头？？（原界面写的是“净水头（m）”）
-    private Double edst;
-    //额定功率（kW)
+    //额定功率（kW）
     private Double edgl;
-    //水轮机效率（%）
-    private Double sljxl;
-    //发电机效率（%）
-    private Double fdjxl;
-
+    //最低负载率（%）
+    private Double zdfzl;
+    //最小运营时间（小时）
+    private Double zxyysj;
+    //寿命（h）
     private Double life;
 
     private String factory;
+    //二氧化碳（g/L）
+    private Double co2;
+    //一氧化碳（g/L）
+    private Double co;
+    //未燃烧碳氢化合物（g/L），这里应该是wrstqhhw，原来xml里边写错了
+    private Double wrsdqhhw;
+    //颗粒物（g/L）
+    private Double klw;
+    //二氧化硫（g/L）
+    private Double so2;
+    //氮氧化物（g/L）
+    private Double dyhw;
+    //类型 柴油 汽油
+    private String type;
+    //功率曲线的点的个数，默认3
+    private Integer glqxnum;
+    //输出功率（kW）
+    private Double scgl1;
+
+    private Double scgl2;
+
+    private Double scgl3;
+    //燃料消耗（L/kW）
+    private Double rlxh1;
+
+    private Double rlxh2;
+
+    private Double rlxh3;
 
     private Integer capacity1;
 
@@ -40,7 +66,7 @@ public class Turbine {
     private Double gxcb3;
 
     private Double gxcb4;
-
+    //运行维护成本（元/h）
     private Double yxwhcb1;
 
     private Double yxwhcb2;
@@ -67,14 +93,6 @@ public class Turbine {
         this.name = name == null ? null : name.trim();
     }
 
-    public Double getEdst() {
-        return edst;
-    }
-
-    public void setEdst(Double edst) {
-        this.edst = edst;
-    }
-
     public Double getEdgl() {
         return edgl;
     }
@@ -83,20 +101,20 @@ public class Turbine {
         this.edgl = edgl;
     }
 
-    public Double getSljxl() {
-        return sljxl;
+    public Double getZdfzl() {
+        return zdfzl;
     }
 
-    public void setSljxl(Double sljxl) {
-        this.sljxl = sljxl;
+    public void setZdfzl(Double zdfzl) {
+        this.zdfzl = zdfzl;
     }
 
-    public Double getFdjxl() {
-        return fdjxl;
+    public Double getZxyysj() {
+        return zxyysj;
     }
 
-    public void setFdjxl(Double fdjxl) {
-        this.fdjxl = fdjxl;
+    public void setZxyysj(Double zxyysj) {
+        this.zxyysj = zxyysj;
     }
 
     public Double getLife() {
@@ -113,6 +131,118 @@ public class Turbine {
 
     public void setFactory(String factory) {
         this.factory = factory == null ? null : factory.trim();
+    }
+
+    public Double getCo2() {
+        return co2;
+    }
+
+    public void setCo2(Double co2) {
+        this.co2 = co2;
+    }
+
+    public Double getCo() {
+        return co;
+    }
+
+    public void setCo(Double co) {
+        this.co = co;
+    }
+
+    public Double getWrsdqhhw() {
+        return wrsdqhhw;
+    }
+
+    public void setWrsdqhhw(Double wrsdqhhw) {
+        this.wrsdqhhw = wrsdqhhw;
+    }
+
+    public Double getKlw() {
+        return klw;
+    }
+
+    public void setKlw(Double klw) {
+        this.klw = klw;
+    }
+
+    public Double getSo2() {
+        return so2;
+    }
+
+    public void setSo2(Double so2) {
+        this.so2 = so2;
+    }
+
+    public Double getDyhw() {
+        return dyhw;
+    }
+
+    public void setDyhw(Double dyhw) {
+        this.dyhw = dyhw;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public Integer getGlqxnum() {
+        return glqxnum;
+    }
+
+    public void setGlqxnum(Integer glqxnum) {
+        this.glqxnum = glqxnum;
+    }
+
+    public Double getScgl1() {
+        return scgl1;
+    }
+
+    public void setScgl1(Double scgl1) {
+        this.scgl1 = scgl1;
+    }
+
+    public Double getScgl2() {
+        return scgl2;
+    }
+
+    public void setScgl2(Double scgl2) {
+        this.scgl2 = scgl2;
+    }
+
+    public Double getScgl3() {
+        return scgl3;
+    }
+
+    public void setScgl3(Double scgl3) {
+        this.scgl3 = scgl3;
+    }
+
+    public Double getRlxh1() {
+        return rlxh1;
+    }
+
+    public void setRlxh1(Double rlxh1) {
+        this.rlxh1 = rlxh1;
+    }
+
+    public Double getRlxh2() {
+        return rlxh2;
+    }
+
+    public void setRlxh2(Double rlxh2) {
+        this.rlxh2 = rlxh2;
+    }
+
+    public Double getRlxh3() {
+        return rlxh3;
+    }
+
+    public void setRlxh3(Double rlxh3) {
+        this.rlxh3 = rlxh3;
     }
 
     public Integer getCapacity1() {

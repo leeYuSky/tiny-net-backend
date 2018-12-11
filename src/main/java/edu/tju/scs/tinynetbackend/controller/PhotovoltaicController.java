@@ -1,7 +1,7 @@
 package edu.tju.scs.tinynetbackend.controller;
 
 
-import edu.tju.scs.tinynetbackend.domain.Photovoltaic;
+import edu.tju.scs.tinynetbackend.po.Photovoltaic;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.dto.ResponseObjectData;
 import edu.tju.scs.tinynetbackend.mapper.PhotovoltaicMapper;

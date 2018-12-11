@@ -1,7 +1,7 @@
 package edu.tju.scs.tinynetbackend.controller;
 
 
-import edu.tju.scs.tinynetbackend.domain.Generator;
+import edu.tju.scs.tinynetbackend.po.Generator;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.dto.ResponseObjectData;
 import edu.tju.scs.tinynetbackend.mapper.GeneratorMapper;

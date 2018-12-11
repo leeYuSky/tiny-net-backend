@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.RecordMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Record" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.Record" >
     <id column="name" property="name" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="INTEGER" />
     <result column="owner" property="owner" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="edu.tju.scs.tinynetbackend.po.RecordWithBLOBs" extends="BaseResultMap" >
     <result column="input" property="input" jdbcType="LONGVARCHAR" />
     <result column="output" property="output" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -38,13 +38,13 @@
     delete from record
     where name = #{name,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.RecordWithBLOBs" >
     insert into record (name, state, owner, 
       input, output)
     values (#{name,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{owner,jdbcType=VARCHAR}, 
       #{input,jdbcType=LONGVARCHAR}, #{output,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.RecordWithBLOBs" >
     insert into record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="name != null" >
@@ -81,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.RecordWithBLOBs" >
     update record
     <set >
       <if test="state != null" >
@@ -99,7 +99,7 @@
     </set>
     where name = #{name,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="edu.tju.scs.tinynetbackend.domain.RecordWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="edu.tju.scs.tinynetbackend.po.RecordWithBLOBs" >
     update record
     set state = #{state,jdbcType=INTEGER},
       owner = #{owner,jdbcType=VARCHAR},
@@ -107,7 +107,7 @@
       output = #{output,jdbcType=LONGVARCHAR}
     where name = #{name,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Record" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.Record" >
     update record
     set state = #{state,jdbcType=INTEGER},
       owner = #{owner,jdbcType=VARCHAR}

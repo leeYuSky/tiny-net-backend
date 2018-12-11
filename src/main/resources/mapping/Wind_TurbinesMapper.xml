@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.Wind_TurbinesMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.Wind_Turbines" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="edgl" property="edgl" jdbcType="DOUBLE" />
@@ -94,7 +94,7 @@
     delete from wind_turbines
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.Wind_Turbines" >
     insert into wind_turbines ( name, edgl,
       fjlggd, life, factory, 
       type, glqxNum, fs1, 
@@ -132,7 +132,7 @@
       #{yxwhcb1,jdbcType=DOUBLE}, #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, 
       #{yxwhcb4,jdbcType=DOUBLE}, #{owner,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.Wind_Turbines" >
     insert into wind_turbines
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -529,7 +529,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.Wind_Turbines" >
     update wind_turbines
     <set >
       <if test="name != null" >
@@ -727,7 +727,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Wind_Turbines" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.Wind_Turbines" >
     update wind_turbines
     set name = #{name,jdbcType=VARCHAR},
       edgl = #{edgl,jdbcType=DOUBLE},

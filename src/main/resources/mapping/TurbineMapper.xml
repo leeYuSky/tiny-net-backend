@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.TurbineMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Turbine" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.Turbine" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="edst" property="edst" jdbcType="DOUBLE" />
@@ -51,7 +51,7 @@
     delete from turbine
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.Turbine" >
     insert into turbine (name, edst,
       edgl, sljxl, fdjxl, life, 
       factory, capacity1, capacity2, 
@@ -69,7 +69,7 @@
       #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, #{yxwhcb4,jdbcType=DOUBLE}, 
       #{owner,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.Turbine" >
     insert into turbine
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -226,7 +226,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.Turbine" >
     update turbine
     <set >
       <if test="name != null" >
@@ -304,7 +304,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Turbine" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.Turbine" >
     update turbine
     set name = #{name,jdbcType=VARCHAR},
       edst = #{edst,jdbcType=DOUBLE},

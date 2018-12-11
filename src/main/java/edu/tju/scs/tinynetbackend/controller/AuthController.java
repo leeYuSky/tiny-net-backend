@@ -1,15 +1,16 @@
 package edu.tju.scs.tinynetbackend.controller;
 
-import edu.tju.scs.tinynetbackend.domain.User;
+import edu.tju.scs.tinynetbackend.po.User;
 import edu.tju.scs.tinynetbackend.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
+@RestController
 public class AuthController {
     @Autowired
     protected LoginService loginService;

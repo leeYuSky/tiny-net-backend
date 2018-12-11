@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.BatteryMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.domain.Battery" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.Battery" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="eddy" property="eddy" jdbcType="DOUBLE" />
@@ -56,7 +56,7 @@
     delete from battery
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.domain.Battery" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.Battery" >
     insert into battery ( name, eddy,
       xhcfdxl, zdcdsl, zdcddl, 
       zdfdsl, dcrl, life, qsmfd, 
@@ -78,7 +78,7 @@
       #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, #{yxwhcb4,jdbcType=DOUBLE}, 
       #{owner,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.domain.Battery" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.Battery" >
     insert into battery
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -265,7 +265,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.domain.Battery" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.Battery" >
     update battery
     <set >
       <if test="name != null" >
@@ -355,7 +355,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.domain.Battery" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.Battery" >
     update battery
     set name = #{name,jdbcType=VARCHAR},
       eddy = #{eddy,jdbcType=DOUBLE},

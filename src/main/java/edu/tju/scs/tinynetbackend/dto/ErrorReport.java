@@ -1,44 +1,27 @@
 package edu.tju.scs.tinynetbackend.dto;
 
+import lombok.*;
+
+
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class ErrorReport {
+
+    @Getter
+    @Setter
+    @NonNull
     private int errno;
+
+    @Getter
+    @Setter
+    @NonNull
     private String errmsg;
+
+    @Getter
+    @Setter
     private ResponseData data;
 
-    protected ErrorReport() {}
-
-    public ErrorReport(int errno, String errmsg, ResponseData data) {
-        this.errno = errno;
-        this.errmsg = errmsg;
-        this.data = data;
-    }
-
-    public ErrorReport(int errno, String errmsg) {
-        this.errno = errno;
-        this.errmsg = errmsg;
-    }
-
-    public int getErrno() {
-        return errno;
-    }
-
-    public void setErrno(int errno) {
-        this.errno = errno;
-    }
-
-    public String getErrmsg() {
-        return errmsg;
-    }
-
-    public void setErrmsg(String errmsg) {
-        this.errmsg = errmsg;
-    }
-
-    public ResponseData getData() {
-        return data;
-    }
-
-    public void setData(ResponseData data) {
-        this.data = data;
-    }
 }
