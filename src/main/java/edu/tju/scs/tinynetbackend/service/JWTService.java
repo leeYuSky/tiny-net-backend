@@ -1,22 +1,18 @@
 package edu.tju.scs.tinynetbackend.service;
 
-import com.auth0.jwt.JWT;
 import edu.tju.scs.tinynetbackend.common.FileHelper;
-import edu.tju.scs.tinynetbackend.dto.ErrorReport;
-import edu.tju.scs.tinynetbackend.dto.ResponseData;
+import edu.tju.scs.tinynetbackend.model.dto.ErrorReport;
+import edu.tju.scs.tinynetbackend.model.dto.ResponseData;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
-import edu.tju.scs.tinynetbackend.po.User;
-import edu.tju.scs.tinynetbackend.utils.RedisUtil;
-import edu.tju.scs.tinynetbackend.utils.TokenUtil;
+import edu.tju.scs.tinynetbackend.model.po.User;
+import edu.tju.scs.tinynetbackend.common.utils.RedisUtil;
+import edu.tju.scs.tinynetbackend.common.utils.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: liyuze
@@ -26,6 +22,12 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Service
 public class JWTService {
+
+    public static final String AUTHENTICATION_KEY = "token";
+
+    public static final String ADMIN_ROLE = "admin";
+
+    public static final String USER_ROLE ="user";
 
     @Autowired
     protected UserMapper userMapper;
@@ -42,7 +44,7 @@ public class JWTService {
             String token = TokenUtil.getToken(user.getPassword(),username);
             boolean result = redisUtil.setAndExpire(username,token);
             if(result){
-                return new ErrorReport(0,"success",new ResponseData().addData("token",token));
+                return new ErrorReport(0,"success",new ResponseData().addData(AUTHENTICATION_KEY,token));
             } else {
                 return new ErrorReport(1, "login failed for error");
             }
@@ -52,27 +54,27 @@ public class JWTService {
     }
 
     public ErrorReport logout(HttpServletRequest request){
-        String token = request.getHeader("token");
-        String audience = JWT.decode(token).getAudience().get(0);
-        if(isLogin(token) && redisUtil.del(audience)){
+        String token = request.getHeader(AUTHENTICATION_KEY);
+        String audience = TokenUtil.getAudience(token);
+        if(isLogin(token) != null && redisUtil.del(audience)){
             return new ErrorReport(0,"success");
         } else {
             return new ErrorReport(1, "logout failed for error");
         }
     }
 
-    public boolean isLogin(String token){
-        String audience = JWT.decode(token).getAudience().get(0);
+    public User isLogin(String token){
+        String audience = TokenUtil.getAudience(token);
         User user = userMapper.selectByPrimaryKey(audience);
-        log.info("logout token audience : {}, {} ", audience ,user);
+        log.info("isLogin token audience : {}, {} ", audience ,user);
         if(user == null || !TokenUtil.parseToken(user.getPassword(),user.getUsername(),token)) {
-            return false;
+            return null;
         }
         String sessionToken = redisUtil.get(audience);
         if(sessionToken != null && sessionToken.equals(token)){
-            return true;
+            return user;
         }
-        return false;
+        return null;
 
     }
 

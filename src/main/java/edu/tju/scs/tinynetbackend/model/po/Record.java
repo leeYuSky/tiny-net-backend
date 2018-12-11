@@ -1,4 +1,4 @@
-package edu.tju.scs.tinynetbackend.po;
+package edu.tju.scs.tinynetbackend.model.po;
 
 public class Record {
     private String name;

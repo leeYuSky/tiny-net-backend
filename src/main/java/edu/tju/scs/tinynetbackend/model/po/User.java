@@ -1,4 +1,4 @@
-package edu.tju.scs.tinynetbackend.po;
+package edu.tju.scs.tinynetbackend.model.po;
 
 
 import lombok.*;

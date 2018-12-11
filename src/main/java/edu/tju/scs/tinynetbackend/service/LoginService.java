@@ -1,8 +1,8 @@
 package edu.tju.scs.tinynetbackend.service;
 
 import edu.tju.scs.tinynetbackend.common.FileHelper;
-import edu.tju.scs.tinynetbackend.po.User;
-import edu.tju.scs.tinynetbackend.dto.ErrorReport;
+import edu.tju.scs.tinynetbackend.model.po.User;
+import edu.tju.scs.tinynetbackend.model.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

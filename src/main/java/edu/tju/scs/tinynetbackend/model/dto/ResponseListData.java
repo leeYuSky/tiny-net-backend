@@ -1,4 +1,4 @@
-package edu.tju.scs.tinynetbackend.dto;
+package edu.tju.scs.tinynetbackend.model.dto;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package edu.tju.scs.tinynetbackend;
 
-import edu.tju.scs.tinynetbackend.po.User;
+import edu.tju.scs.tinynetbackend.model.po.User;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;

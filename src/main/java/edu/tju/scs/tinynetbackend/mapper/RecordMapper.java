@@ -1,7 +1,7 @@
 package edu.tju.scs.tinynetbackend.mapper;
 
-import edu.tju.scs.tinynetbackend.po.Record;
-import edu.tju.scs.tinynetbackend.po.RecordWithBLOBs;
+import edu.tju.scs.tinynetbackend.model.po.Record;
+import edu.tju.scs.tinynetbackend.model.po.RecordWithBLOBs;
 
 import java.util.List;
 

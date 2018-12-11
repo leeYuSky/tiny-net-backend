@@ -2,7 +2,7 @@ package edu.tju.scs.tinynetbackend.common;
 
 
 import edu.tju.scs.tinynetbackend.controller.RecordController;
-import edu.tju.scs.tinynetbackend.po.RecordWithBLOBs;
+import edu.tju.scs.tinynetbackend.model.po.RecordWithBLOBs;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.User" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.model.po.User" >
     <id column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
   </resultMap>
@@ -26,11 +26,11 @@
     delete from user
     where username = #{username,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.User" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.model.po.User" >
     insert into user (username, password)
     values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.User" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.model.po.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="username != null" >
@@ -49,7 +49,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.model.po.User" >
     update user
     <set >
       <if test="password != null" >
@@ -58,7 +58,7 @@
     </set>
     where username = #{username,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.User" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.model.po.User" >
     update user
     set password = #{password,jdbcType=VARCHAR}
     where username = #{username,jdbcType=VARCHAR}

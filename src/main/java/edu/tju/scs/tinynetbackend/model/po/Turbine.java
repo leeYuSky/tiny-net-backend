@@ -1,33 +1,22 @@
-package edu.tju.scs.tinynetbackend.po;
-//电池
-public class Battery {
-    //主键
+package edu.tju.scs.tinynetbackend.model.po;
+//水轮机
+public class Turbine {
     private Integer id;
-    //型号名称
+
     private String name;
-    //额定电压（V）
-    private Double eddy;
-    //循环充放电效率（%）
-    private Double xhcfdxl;
-    //最大充电速率
-    private Double zdcdsl;
-    //最大充电电流（A）
-    private Double zdcddl;
-    //最大放电速率
-    private Double zdfdsl;
-    //电池容量（Ah）
-    private Double dcrl;
-    //寿命（年）
+    //额定水头？？（原界面写的是“净水头（m）”）
+    private Double edst;
+    //额定功率（kW)
+    private Double edgl;
+    //水轮机效率（%）
+    private Double sljxl;
+    //发电机效率（%）
+    private Double fdjxl;
+
     private Double life;
-    //全寿命放电量（kWh）
-    private Double qsmfd;
-    //串联个数
-    private Integer clgs;
-    //制造商
+
     private String factory;
-    //类型：0—交流 1-直流
-    private Integer type;
-    //个数
+
     private Integer capacity1;
 
     private Integer capacity2;
@@ -35,7 +24,7 @@ public class Battery {
     private Integer capacity3;
 
     private Integer capacity4;
-    //初建成本
+
     private Double cjcb1;
 
     private Double cjcb2;
@@ -43,7 +32,7 @@ public class Battery {
     private Double cjcb3;
 
     private Double cjcb4;
-    //更新成本
+
     private Double gxcb1;
 
     private Double gxcb2;
@@ -51,7 +40,7 @@ public class Battery {
     private Double gxcb3;
 
     private Double gxcb4;
-    //运行维护成本
+
     private Double yxwhcb1;
 
     private Double yxwhcb2;
@@ -59,7 +48,7 @@ public class Battery {
     private Double yxwhcb3;
 
     private Double yxwhcb4;
-    //所有者（即username）
+
     private String owner;
 
     public Integer getId() {
@@ -78,52 +67,36 @@ public class Battery {
         this.name = name == null ? null : name.trim();
     }
 
-    public Double getEddy() {
-        return eddy;
+    public Double getEdst() {
+        return edst;
     }
 
-    public void setEddy(Double eddy) {
-        this.eddy = eddy;
+    public void setEdst(Double edst) {
+        this.edst = edst;
     }
 
-    public Double getXhcfdxl() {
-        return xhcfdxl;
+    public Double getEdgl() {
+        return edgl;
     }
 
-    public void setXhcfdxl(Double xhcfdxl) {
-        this.xhcfdxl = xhcfdxl;
+    public void setEdgl(Double edgl) {
+        this.edgl = edgl;
     }
 
-    public Double getZdcdsl() {
-        return zdcdsl;
+    public Double getSljxl() {
+        return sljxl;
     }
 
-    public void setZdcdsl(Double zdcdsl) {
-        this.zdcdsl = zdcdsl;
+    public void setSljxl(Double sljxl) {
+        this.sljxl = sljxl;
     }
 
-    public Double getZdcddl() {
-        return zdcddl;
+    public Double getFdjxl() {
+        return fdjxl;
     }
 
-    public void setZdcddl(Double zdcddl) {
-        this.zdcddl = zdcddl;
-    }
-
-    public Double getZdfdsl() {
-        return zdfdsl;
-    }
-
-    public void setZdfdsl(Double zdfdsl) {
-        this.zdfdsl = zdfdsl;
-    }
-
-    public Double getDcrl() {
-        return dcrl;
-    }
-
-    public void setDcrl(Double dcrl) {
-        this.dcrl = dcrl;
+    public void setFdjxl(Double fdjxl) {
+        this.fdjxl = fdjxl;
     }
 
     public Double getLife() {
@@ -134,36 +107,12 @@ public class Battery {
         this.life = life;
     }
 
-    public Double getQsmfd() {
-        return qsmfd;
-    }
-
-    public void setQsmfd(Double qsmfd) {
-        this.qsmfd = qsmfd;
-    }
-
-    public Integer getClgs() {
-        return clgs;
-    }
-
-    public void setClgs(Integer clgs) {
-        this.clgs = clgs;
-    }
-
     public String getFactory() {
         return factory;
     }
 
     public void setFactory(String factory) {
         this.factory = factory == null ? null : factory.trim();
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
     }
 
     public Integer getCapacity1() {

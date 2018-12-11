@@ -1,6 +1,6 @@
 package edu.tju.scs.tinynetbackend.mapper;
 
-import edu.tju.scs.tinynetbackend.po.Turbine;
+import edu.tju.scs.tinynetbackend.model.po.Turbine;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

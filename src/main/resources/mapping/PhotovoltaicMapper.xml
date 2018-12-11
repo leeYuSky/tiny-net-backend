@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.tju.scs.tinynetbackend.mapper.PhotovoltaicMapper" >
-  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.po.Photovoltaic" >
+  <resultMap id="BaseResultMap" type="edu.tju.scs.tinynetbackend.model.po.Photovoltaic" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="edrl" property="edrl" jdbcType="DOUBLE" />
@@ -62,7 +62,7 @@
     delete from photovoltaic
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.po.Photovoltaic" >
+  <insert id="insert" parameterType="edu.tju.scs.tinynetbackend.model.po.Photovoltaic" >
     insert into photovoltaic ( name, edrl,
       tyntgl, jeys, gfzltynxsl, 
       gffdxl, noctWd, wdxs, 
@@ -86,7 +86,7 @@
       #{yxwhcb1,jdbcType=DOUBLE}, #{yxwhcb2,jdbcType=DOUBLE}, #{yxwhcb3,jdbcType=DOUBLE}, 
       #{yxwhcb4,jdbcType=DOUBLE}, #{owner,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.po.Photovoltaic" >
+  <insert id="insertSelective" parameterType="edu.tju.scs.tinynetbackend.model.po.Photovoltaic" >
     insert into photovoltaic
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -303,7 +303,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.po.Photovoltaic" >
+  <update id="updateByPrimaryKeySelective" parameterType="edu.tju.scs.tinynetbackend.model.po.Photovoltaic" >
     update photovoltaic
     <set >
       <if test="name != null" >
@@ -411,7 +411,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.po.Photovoltaic" >
+  <update id="updateByPrimaryKey" parameterType="edu.tju.scs.tinynetbackend.model.po.Photovoltaic" >
     update photovoltaic
     set name = #{name,jdbcType=VARCHAR},
       edrl = #{edrl,jdbcType=DOUBLE},

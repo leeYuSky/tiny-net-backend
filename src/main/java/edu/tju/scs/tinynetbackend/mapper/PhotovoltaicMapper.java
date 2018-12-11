@@ -1,7 +1,7 @@
 package edu.tju.scs.tinynetbackend.mapper;
 
 
-import edu.tju.scs.tinynetbackend.po.Photovoltaic;
+import edu.tju.scs.tinynetbackend.model.po.Photovoltaic;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 

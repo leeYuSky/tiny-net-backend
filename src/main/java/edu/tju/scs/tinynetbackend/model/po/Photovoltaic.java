@@ -1,48 +1,43 @@
-package edu.tju.scs.tinynetbackend.po;
-
-public class Generator {
+package edu.tju.scs.tinynetbackend.model.po;
+//光伏
+public class Photovoltaic {
+    //主键,默认自增
     private Integer id;
-
+    //型号名称
     private String name;
-    //额定功率（kW）
-    private Double edgl;
-    //最低负载率（%）
-    private Double zdfzl;
-    //最小运营时间（小时）
-    private Double zxyysj;
-    //寿命（h）
+    //额定容量？？实际上这个数据只有0
+    private Double edrl;
+    //太阳能透过率（%）
+    private Double tyntgl;
+    //降噪因数
+    private Double jeys;
+    //光伏阵列的太阳能吸收率（%）
+    private Double gfzltynxsl;
+    //光伏发电效率（%）
+    private Double gffdxl;
+    //noct条件下的环境温度（℃）
+    private Double noctwd;
+    //温度系数（%/℃）
+    private Double wdxs;
+    //noct条件下的光照强度（kWh/m2/d），这两个变量，软件里写的是notc，数据库里边存的是noct
+    private Double noctgz;
+    //光伏板标准温度（℃）
+    private Double gfbbzwd;
+    //寿命（年）
     private Double life;
-
+    //stc条件下的PV电池温度（℃）
+    private Double stcwd;
+    //制造商
     private String factory;
-    //二氧化碳（g/L）
-    private Double co2;
-    //一氧化碳（g/L）
-    private Double co;
-    //未燃烧碳氢化合物（g/L），这里应该是wrstqhhw，原来xml里边写错了
-    private Double wrsdqhhw;
-    //颗粒物（g/L）
-    private Double klw;
-    //二氧化硫（g/L）
-    private Double so2;
-    //氮氧化物（g/L）
-    private Double dyhw;
-    //类型 柴油 汽油
-    private String type;
-    //功率曲线的点的个数，默认3
-    private Integer glqxnum;
-    //输出功率（kW）
-    private Double scgl1;
-
-    private Double scgl2;
-
-    private Double scgl3;
-    //燃料消耗（L/kW）
-    private Double rlxh1;
-
-    private Double rlxh2;
-
-    private Double rlxh3;
-
+    //地面反射率（%）
+    private Double dmfsl;
+    //方位角（°）
+    private Double fwj;
+    //倾斜角（°）
+    private Double qxj;
+    //类型 0交流 1直流
+    private Double type;
+    //个数
     private Integer capacity1;
 
     private Integer capacity2;
@@ -50,7 +45,7 @@ public class Generator {
     private Integer capacity3;
 
     private Integer capacity4;
-
+    //初建成本
     private Double cjcb1;
 
     private Double cjcb2;
@@ -58,7 +53,7 @@ public class Generator {
     private Double cjcb3;
 
     private Double cjcb4;
-
+    //更新成本
     private Double gxcb1;
 
     private Double gxcb2;
@@ -66,7 +61,7 @@ public class Generator {
     private Double gxcb3;
 
     private Double gxcb4;
-    //运行维护成本（元/h）
+    //运行维护成本（元/年）
     private Double yxwhcb1;
 
     private Double yxwhcb2;
@@ -93,28 +88,76 @@ public class Generator {
         this.name = name == null ? null : name.trim();
     }
 
-    public Double getEdgl() {
-        return edgl;
+    public Double getEdrl() {
+        return edrl;
     }
 
-    public void setEdgl(Double edgl) {
-        this.edgl = edgl;
+    public void setEdrl(Double edrl) {
+        this.edrl = edrl;
     }
 
-    public Double getZdfzl() {
-        return zdfzl;
+    public Double getTyntgl() {
+        return tyntgl;
     }
 
-    public void setZdfzl(Double zdfzl) {
-        this.zdfzl = zdfzl;
+    public void setTyntgl(Double tyntgl) {
+        this.tyntgl = tyntgl;
     }
 
-    public Double getZxyysj() {
-        return zxyysj;
+    public Double getJeys() {
+        return jeys;
     }
 
-    public void setZxyysj(Double zxyysj) {
-        this.zxyysj = zxyysj;
+    public void setJeys(Double jeys) {
+        this.jeys = jeys;
+    }
+
+    public Double getGfzltynxsl() {
+        return gfzltynxsl;
+    }
+
+    public void setGfzltynxsl(Double gfzltynxsl) {
+        this.gfzltynxsl = gfzltynxsl;
+    }
+
+    public Double getGffdxl() {
+        return gffdxl;
+    }
+
+    public void setGffdxl(Double gffdxl) {
+        this.gffdxl = gffdxl;
+    }
+
+    public Double getNoctwd() {
+        return noctwd;
+    }
+
+    public void setNoctwd(Double noctwd) {
+        this.noctwd = noctwd;
+    }
+
+    public Double getWdxs() {
+        return wdxs;
+    }
+
+    public void setWdxs(Double wdxs) {
+        this.wdxs = wdxs;
+    }
+
+    public Double getNoctgz() {
+        return noctgz;
+    }
+
+    public void setNoctgz(Double noctgz) {
+        this.noctgz = noctgz;
+    }
+
+    public Double getGfbbzwd() {
+        return gfbbzwd;
+    }
+
+    public void setGfbbzwd(Double gfbbzwd) {
+        this.gfbbzwd = gfbbzwd;
     }
 
     public Double getLife() {
@@ -125,6 +168,14 @@ public class Generator {
         this.life = life;
     }
 
+    public Double getStcwd() {
+        return stcwd;
+    }
+
+    public void setStcwd(Double stcwd) {
+        this.stcwd = stcwd;
+    }
+
     public String getFactory() {
         return factory;
     }
@@ -133,116 +184,36 @@ public class Generator {
         this.factory = factory == null ? null : factory.trim();
     }
 
-    public Double getCo2() {
-        return co2;
+    public Double getDmfsl() {
+        return dmfsl;
     }
 
-    public void setCo2(Double co2) {
-        this.co2 = co2;
+    public void setDmfsl(Double dmfsl) {
+        this.dmfsl = dmfsl;
     }
 
-    public Double getCo() {
-        return co;
+    public Double getFwj() {
+        return fwj;
     }
 
-    public void setCo(Double co) {
-        this.co = co;
+    public void setFwj(Double fwj) {
+        this.fwj = fwj;
     }
 
-    public Double getWrsdqhhw() {
-        return wrsdqhhw;
+    public Double getQxj() {
+        return qxj;
     }
 
-    public void setWrsdqhhw(Double wrsdqhhw) {
-        this.wrsdqhhw = wrsdqhhw;
+    public void setQxj(Double qxj) {
+        this.qxj = qxj;
     }
 
-    public Double getKlw() {
-        return klw;
-    }
-
-    public void setKlw(Double klw) {
-        this.klw = klw;
-    }
-
-    public Double getSo2() {
-        return so2;
-    }
-
-    public void setSo2(Double so2) {
-        this.so2 = so2;
-    }
-
-    public Double getDyhw() {
-        return dyhw;
-    }
-
-    public void setDyhw(Double dyhw) {
-        this.dyhw = dyhw;
-    }
-
-    public String getType() {
+    public Double getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
-    }
-
-    public Integer getGlqxnum() {
-        return glqxnum;
-    }
-
-    public void setGlqxnum(Integer glqxnum) {
-        this.glqxnum = glqxnum;
-    }
-
-    public Double getScgl1() {
-        return scgl1;
-    }
-
-    public void setScgl1(Double scgl1) {
-        this.scgl1 = scgl1;
-    }
-
-    public Double getScgl2() {
-        return scgl2;
-    }
-
-    public void setScgl2(Double scgl2) {
-        this.scgl2 = scgl2;
-    }
-
-    public Double getScgl3() {
-        return scgl3;
-    }
-
-    public void setScgl3(Double scgl3) {
-        this.scgl3 = scgl3;
-    }
-
-    public Double getRlxh1() {
-        return rlxh1;
-    }
-
-    public void setRlxh1(Double rlxh1) {
-        this.rlxh1 = rlxh1;
-    }
-
-    public Double getRlxh2() {
-        return rlxh2;
-    }
-
-    public void setRlxh2(Double rlxh2) {
-        this.rlxh2 = rlxh2;
-    }
-
-    public Double getRlxh3() {
-        return rlxh3;
-    }
-
-    public void setRlxh3(Double rlxh3) {
-        this.rlxh3 = rlxh3;
+    public void setType(Double type) {
+        this.type = type;
     }
 
     public Integer getCapacity1() {

@@ -1,42 +1,32 @@
-package edu.tju.scs.tinynetbackend.po;
-//光伏
-public class Photovoltaic {
-    //主键,默认自增
+package edu.tju.scs.tinynetbackend.model.po;
+//电池
+public class Battery {
+    //主键
     private Integer id;
     //型号名称
     private String name;
-    //额定容量？？实际上这个数据只有0
-    private Double edrl;
-    //太阳能透过率（%）
-    private Double tyntgl;
-    //降噪因数
-    private Double jeys;
-    //光伏阵列的太阳能吸收率（%）
-    private Double gfzltynxsl;
-    //光伏发电效率（%）
-    private Double gffdxl;
-    //noct条件下的环境温度（℃）
-    private Double noctwd;
-    //温度系数（%/℃）
-    private Double wdxs;
-    //noct条件下的光照强度（kWh/m2/d），这两个变量，软件里写的是notc，数据库里边存的是noct
-    private Double noctgz;
-    //光伏板标准温度（℃）
-    private Double gfbbzwd;
+    //额定电压（V）
+    private Double eddy;
+    //循环充放电效率（%）
+    private Double xhcfdxl;
+    //最大充电速率
+    private Double zdcdsl;
+    //最大充电电流（A）
+    private Double zdcddl;
+    //最大放电速率
+    private Double zdfdsl;
+    //电池容量（Ah）
+    private Double dcrl;
     //寿命（年）
     private Double life;
-    //stc条件下的PV电池温度（℃）
-    private Double stcwd;
+    //全寿命放电量（kWh）
+    private Double qsmfd;
+    //串联个数
+    private Integer clgs;
     //制造商
     private String factory;
-    //地面反射率（%）
-    private Double dmfsl;
-    //方位角（°）
-    private Double fwj;
-    //倾斜角（°）
-    private Double qxj;
-    //类型 0交流 1直流
-    private Double type;
+    //类型：0—交流 1-直流
+    private Integer type;
     //个数
     private Integer capacity1;
 
@@ -61,7 +51,7 @@ public class Photovoltaic {
     private Double gxcb3;
 
     private Double gxcb4;
-    //运行维护成本（元/年）
+    //运行维护成本
     private Double yxwhcb1;
 
     private Double yxwhcb2;
@@ -69,7 +59,7 @@ public class Photovoltaic {
     private Double yxwhcb3;
 
     private Double yxwhcb4;
-
+    //所有者（即username）
     private String owner;
 
     public Integer getId() {
@@ -88,76 +78,52 @@ public class Photovoltaic {
         this.name = name == null ? null : name.trim();
     }
 
-    public Double getEdrl() {
-        return edrl;
+    public Double getEddy() {
+        return eddy;
     }
 
-    public void setEdrl(Double edrl) {
-        this.edrl = edrl;
+    public void setEddy(Double eddy) {
+        this.eddy = eddy;
     }
 
-    public Double getTyntgl() {
-        return tyntgl;
+    public Double getXhcfdxl() {
+        return xhcfdxl;
     }
 
-    public void setTyntgl(Double tyntgl) {
-        this.tyntgl = tyntgl;
+    public void setXhcfdxl(Double xhcfdxl) {
+        this.xhcfdxl = xhcfdxl;
     }
 
-    public Double getJeys() {
-        return jeys;
+    public Double getZdcdsl() {
+        return zdcdsl;
     }
 
-    public void setJeys(Double jeys) {
-        this.jeys = jeys;
+    public void setZdcdsl(Double zdcdsl) {
+        this.zdcdsl = zdcdsl;
     }
 
-    public Double getGfzltynxsl() {
-        return gfzltynxsl;
+    public Double getZdcddl() {
+        return zdcddl;
     }
 
-    public void setGfzltynxsl(Double gfzltynxsl) {
-        this.gfzltynxsl = gfzltynxsl;
+    public void setZdcddl(Double zdcddl) {
+        this.zdcddl = zdcddl;
     }
 
-    public Double getGffdxl() {
-        return gffdxl;
+    public Double getZdfdsl() {
+        return zdfdsl;
     }
 
-    public void setGffdxl(Double gffdxl) {
-        this.gffdxl = gffdxl;
+    public void setZdfdsl(Double zdfdsl) {
+        this.zdfdsl = zdfdsl;
     }
 
-    public Double getNoctwd() {
-        return noctwd;
+    public Double getDcrl() {
+        return dcrl;
     }
 
-    public void setNoctwd(Double noctwd) {
-        this.noctwd = noctwd;
-    }
-
-    public Double getWdxs() {
-        return wdxs;
-    }
-
-    public void setWdxs(Double wdxs) {
-        this.wdxs = wdxs;
-    }
-
-    public Double getNoctgz() {
-        return noctgz;
-    }
-
-    public void setNoctgz(Double noctgz) {
-        this.noctgz = noctgz;
-    }
-
-    public Double getGfbbzwd() {
-        return gfbbzwd;
-    }
-
-    public void setGfbbzwd(Double gfbbzwd) {
-        this.gfbbzwd = gfbbzwd;
+    public void setDcrl(Double dcrl) {
+        this.dcrl = dcrl;
     }
 
     public Double getLife() {
@@ -168,12 +134,20 @@ public class Photovoltaic {
         this.life = life;
     }
 
-    public Double getStcwd() {
-        return stcwd;
+    public Double getQsmfd() {
+        return qsmfd;
     }
 
-    public void setStcwd(Double stcwd) {
-        this.stcwd = stcwd;
+    public void setQsmfd(Double qsmfd) {
+        this.qsmfd = qsmfd;
+    }
+
+    public Integer getClgs() {
+        return clgs;
+    }
+
+    public void setClgs(Integer clgs) {
+        this.clgs = clgs;
     }
 
     public String getFactory() {
@@ -184,35 +158,11 @@ public class Photovoltaic {
         this.factory = factory == null ? null : factory.trim();
     }
 
-    public Double getDmfsl() {
-        return dmfsl;
-    }
-
-    public void setDmfsl(Double dmfsl) {
-        this.dmfsl = dmfsl;
-    }
-
-    public Double getFwj() {
-        return fwj;
-    }
-
-    public void setFwj(Double fwj) {
-        this.fwj = fwj;
-    }
-
-    public Double getQxj() {
-        return qxj;
-    }
-
-    public void setQxj(Double qxj) {
-        this.qxj = qxj;
-    }
-
-    public Double getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(Double type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 

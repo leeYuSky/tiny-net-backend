@@ -1,9 +1,9 @@
 package edu.tju.scs.tinynetbackend.controller;
 
 
-import edu.tju.scs.tinynetbackend.po.Generator;
-import edu.tju.scs.tinynetbackend.dto.ErrorReport;
-import edu.tju.scs.tinynetbackend.dto.ResponseObjectData;
+import edu.tju.scs.tinynetbackend.model.po.Generator;
+import edu.tju.scs.tinynetbackend.model.dto.ErrorReport;
+import edu.tju.scs.tinynetbackend.model.dto.ResponseObjectData;
 import edu.tju.scs.tinynetbackend.mapper.GeneratorMapper;
 import edu.tju.scs.tinynetbackend.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
