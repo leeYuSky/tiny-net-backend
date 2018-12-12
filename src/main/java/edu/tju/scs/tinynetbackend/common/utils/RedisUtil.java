@@ -52,4 +52,15 @@ public class RedisUtil {
         }
     }
 
+    public void updateExpire(String key){
+        try {
+            Long remain = stringRedisTemplate.opsForValue().getOperations().getExpire(key);
+            if(remain != null && remain < 900 / 2) {
+                stringRedisTemplate.opsForValue().getOperations().expire(key, EXPIRE_TIME, TimeUnit.SECONDS);
+            }
+        } catch (Exception e) {
+            log.error("Redis expire failed, {} ", e.getMessage());
+        }
+    }
+
 }

@@ -2,6 +2,8 @@ package edu.tju.scs.tinynetbackend.common.Interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.tju.scs.tinynetbackend.common.Annotaion.JWTAuth;
+import edu.tju.scs.tinynetbackend.common.utils.RedisUtil;
+import edu.tju.scs.tinynetbackend.common.utils.TokenUtil;
 import edu.tju.scs.tinynetbackend.model.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.mapper.UserMapper;
 import edu.tju.scs.tinynetbackend.model.po.User;
@@ -31,6 +33,9 @@ public class JWTAuthenticationInterceptor implements HandlerInterceptor {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    RedisUtil redisUtil;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -53,10 +58,9 @@ public class JWTAuthenticationInterceptor implements HandlerInterceptor {
             }
             JWTAuth jwtAuth = method.getAnnotation(JWTAuth.class);
             String authorization = jwtAuth.value();
-            if(JWTService.ADMIN_ROLE.equals(authorization) && user.getType() == 1){
-                return true;
-            }
-            if(JWTService.USER_ROLE.equals(authorization) && user.getType() == 0){
+            if((JWTService.ADMIN_ROLE.equals(authorization) && user.getType() == 1) ||
+                    (JWTService.USER_ROLE.equals(authorization) && user.getType() == 0)){
+                redisUtil.updateExpire(TokenUtil.getAudience(token));
                 return true;
             }
             writeMsg(response,new ErrorReport(10,"the authorization is not correct"));
