@@ -57,12 +57,20 @@ public class JWTAuthenticationInterceptor implements HandlerInterceptor {
                 return false;
             }
             JWTAuth jwtAuth = method.getAnnotation(JWTAuth.class);
-            String authorization = jwtAuth.value();
-            if((JWTService.ADMIN_ROLE.equals(authorization) && user.getType() == 1) ||
-                    (JWTService.USER_ROLE.equals(authorization) && user.getType() == 0)){
-                redisUtil.updateExpire(TokenUtil.getAudience(token));
-                return true;
+            String[] authorization = jwtAuth.value();
+
+            if(authorization.length > 0){
+
+                for(int i = 0;i < authorization.length;i++){
+                    if((JWTService.ADMIN_ROLE.equals(authorization[i]) && user.getType() == 1) ||
+                            (JWTService.USER_ROLE.equals(authorization[i]) && user.getType() == 0)){
+                        redisUtil.updateExpire(TokenUtil.getAudience(token));
+                        return true;
+                    }
+                }
+
             }
+
             writeMsg(response,new ErrorReport(10,"the authorization is not correct"));
             return false;
         }

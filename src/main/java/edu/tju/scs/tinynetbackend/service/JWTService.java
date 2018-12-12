@@ -78,20 +78,4 @@ public class JWTService {
 
     }
 
-    public ErrorReport reg(String username, String password){
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        password = passwordEncoder.encode(password);
-        if (userMapper.exist(username) == 0) {
-            User user = new User();
-            user.setUsername(username);
-            user.setPassword(password);
-            // todo 用户类型
-            userMapper.insert(user);
-            FileHelper.createUser(username);
-            return new ErrorReport(0, "success");
-        } else {
-            return new ErrorReport(3, "duplication error");
-        }
-    }
-
 }

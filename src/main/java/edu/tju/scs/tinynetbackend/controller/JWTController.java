@@ -37,12 +37,6 @@ public class JWTController {
         return result;
     }
 
-    @RequestMapping(value = "/jwt/register",method = RequestMethod.POST)
-    public ErrorReport doReg(String username, String password){
-        ErrorReport result = jwtService.reg(username, password);
-        return result;
-    }
-
     @RequestMapping(value = "/log")
     public void log(){
         log.trace("trace");
