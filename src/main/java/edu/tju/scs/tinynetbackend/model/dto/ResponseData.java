@@ -8,15 +8,13 @@ import java.util.Map;
 @EqualsAndHashCode
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class ResponseData {
 
     @Getter
     @Setter
     Map<String,Object> data = new HashMap<>();
 
-    public ResponseData(){
-
-    }
 
     public ResponseData addData(@NonNull String key, @NonNull Object value){
         try {

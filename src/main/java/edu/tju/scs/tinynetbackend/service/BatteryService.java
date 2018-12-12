@@ -3,6 +3,7 @@ package edu.tju.scs.tinynetbackend.service;
 import edu.tju.scs.tinynetbackend.common.utils.TokenUtil;
 import edu.tju.scs.tinynetbackend.mapper.BatteryMapper;
 import edu.tju.scs.tinynetbackend.model.dto.ErrorReport;
+import edu.tju.scs.tinynetbackend.model.dto.ResponseData;
 import edu.tju.scs.tinynetbackend.model.dto.ResponseObjectData;
 import edu.tju.scs.tinynetbackend.model.po.Battery;
 import lombok.extern.slf4j.Slf4j;
@@ -89,7 +90,7 @@ public class BatteryService {
 
         List<Battery> batterylist =batteryMapper.selectByOwner(username);
 
-        return new ErrorReport(0,"success",new ResponseObjectData(batterylist));
+        return new ErrorReport(0,"success",new ResponseData().addData("batterylist",batterylist));
 
     }
 }
