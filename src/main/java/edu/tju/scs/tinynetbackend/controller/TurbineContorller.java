@@ -1,65 +1,69 @@
 package edu.tju.scs.tinynetbackend.controller;
 
 
+import edu.tju.scs.tinynetbackend.common.Annotaion.JWTAuth;
 import edu.tju.scs.tinynetbackend.model.po.Turbine;
 import edu.tju.scs.tinynetbackend.model.dto.ErrorReport;
 import edu.tju.scs.tinynetbackend.model.dto.ResponseObjectData;
 import edu.tju.scs.tinynetbackend.mapper.TurbineMapper;
+import edu.tju.scs.tinynetbackend.service.JWTService;
 import edu.tju.scs.tinynetbackend.service.LoginService;
+import edu.tju.scs.tinynetbackend.service.TurbineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
 public class TurbineContorller {
 
     @Autowired
-    protected LoginService loginService;
+    protected TurbineService turbineService;
 
-    @Autowired
-    protected TurbineMapper turbineMapper;
-
+    @JWTAuth(value = {JWTService.ADMIN_ROLE, JWTService.USER_ROLE})
     @RequestMapping(value = "/tinyNet/device/turbine/add",method = RequestMethod.POST)
-    public ErrorReport add(@RequestBody Turbine turbine)
+    public ErrorReport add(@RequestBody Turbine turbine,HttpServletRequest request)
     {
-        turbineMapper.insert(turbine);
-        return new ErrorReport(0,"success");
+        ErrorReport result = turbineService.add(request,turbine);
+        return result;
     }
 
+    @JWTAuth(value = {JWTService.ADMIN_ROLE, JWTService.USER_ROLE})
     @RequestMapping(value = "/tinyNet/device/turbine/update",method = RequestMethod.POST)
-    public ErrorReport update(@RequestBody Turbine turbine)
+    public ErrorReport update(@RequestBody Turbine turbine,HttpServletRequest request)
     {
-        turbineMapper.updateByPrimaryKey(turbine);
-        return new ErrorReport(0,"success");
+        ErrorReport result = turbineService.update(request,turbine);
+        return result;
     }
 
+    @JWTAuth(value = {JWTService.ADMIN_ROLE, JWTService.USER_ROLE})
     @RequestMapping(value = "/tinyNet/device/turbine/select",method = RequestMethod.POST)
-    public ErrorReport select(int id)
+    public ErrorReport select(int id,HttpServletRequest request)
     {
-        Turbine turbine=turbineMapper.selectByPrimaryKey(id);
-        if(turbine!=null)
-            return new ErrorReport(0,"success",new ResponseObjectData(turbine));
-        else
-            return new ErrorReport(11,"id not found");
+        ErrorReport result = turbineService.select(request,id);
+        return result;
     }
 
+    @JWTAuth(value = {JWTService.ADMIN_ROLE, JWTService.USER_ROLE})
     @RequestMapping(value = "/tinyNet/device/turbine/delete",method = RequestMethod.POST)
-    public ErrorReport delete(int id)
+    public ErrorReport delete(int id,HttpServletRequest request)
     {
-        turbineMapper.deleteByPrimaryKey(id);
-        return new ErrorReport(0,"success");
+        ErrorReport result = turbineService.delete(request,id);
+        return result;
     }
 
+    @JWTAuth(value = {JWTService.ADMIN_ROLE, JWTService.USER_ROLE})
     @RequestMapping(value = "/tinyNet/device/turbine/list",method = RequestMethod.POST)
-    public ErrorReport list(String username)
-    {
-        List<Turbine> turbinelist =turbineMapper.selectByOwner(username);
+    public ErrorReport list(HttpServletRequest request){
 
-        return new ErrorReport(0,"success",new ResponseObjectData(turbinelist));
+
+        ErrorReport result =  turbineService.list(request);
+
+        return result;
 
     }
 
