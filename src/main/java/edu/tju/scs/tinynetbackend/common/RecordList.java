@@ -3,6 +3,7 @@ package edu.tju.scs.tinynetbackend.common;
 
 import edu.tju.scs.tinynetbackend.controller.RecordController;
 import edu.tju.scs.tinynetbackend.model.po.RecordWithBLOBs;
+import edu.tju.scs.tinynetbackend.service.RecordService;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class RecordList {
             {
                 list.remove(i);
 
-                RecordController.addOutput(i.getName(),FileHelper.getOurput(i.getOwner(),i.getName()));
+                RecordService.addOutput(i.getName(),FileHelper.getOurput(i.getOwner(),i.getName()));
             }
 
         }
