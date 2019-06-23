@@ -351,4 +351,48 @@ public class Photovoltaic {
     public void setOwner(String owner) {
         this.owner = owner == null ? null : owner.trim();
     }
+
+    public  String  toString1()
+    {
+        String ret="";
+        ret+=Double.toString(jeys)+'\n';
+        ret+=Double.toString(gffdxl)+'\n';
+        ret+=Double.toString(qxj)+'\n';
+        ret+=Double.toString(fwj)+'\n';
+        ret+=Double.toString(dmfsl)+'\n';
+        ret+=Double.toString(wdxs)+'\n';
+        ret+=Double.toString(gfbbzwd)+'\n';
+        ret+=Double.toString(tyntgl)+'\n';
+        ret+=Double.toString(gfzltynxsl)+'\n';
+        ret+=Double.toString(stcwd)+'\n';
+        ret+=Double.toString(noctwd)+'\n';
+        ret+=Double.toString(noctgz)+'\n';
+
+        return ret;
+    }
+
+    public  String  toString2()
+    {
+        String ret="";
+        ret+=Double.toString(life)+'\n';
+        ret+=Double.toString(life)+'\n';
+        ret+="1"+'\n';
+        ret+=Integer.toString(capacity1)+' ';
+        ret+=Integer.toString(capacity2)+' ';
+        ret+=Integer.toString(capacity3)+' ';
+        ret+=Integer.toString(capacity4)+'\n';
+        ret+=Double.toString(cjcb1)+' ';
+        ret+=Double.toString(cjcb2)+' ';
+        ret+=Double.toString(cjcb3)+' ';
+        ret+=Double.toString(cjcb4)+'\n';
+        ret+=Double.toString(gxcb1)+' ';
+        ret+=Double.toString(gxcb2)+' ';
+        ret+=Double.toString(gxcb3)+' ';
+        ret+=Double.toString(gxcb4)+'\n';
+        ret+=Double.toString(yxwhcb1)+' ';
+        ret+=Double.toString(yxwhcb2)+' ';
+        ret+=Double.toString(yxwhcb3)+' ';
+        ret+=Double.toString(yxwhcb4)+'\n';
+        return ret;
+    }
 }

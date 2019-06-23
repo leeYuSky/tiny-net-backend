@@ -1,6 +1,7 @@
 package edu.tju.scs.tinynetbackend.service;
 
 
+import edu.tju.scs.tinynetbackend.common.FileHelper;
 import edu.tju.scs.tinynetbackend.common.RecordList;
 import edu.tju.scs.tinynetbackend.common.utils.TokenUtil;
 import edu.tju.scs.tinynetbackend.mapper.RecordMapper;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 
 @Service
@@ -32,6 +34,7 @@ public class RecordService {
 
     public ErrorReport add(HttpServletRequest request, String recordname, String input)
     {
+        input = FileHelper.getInput(input);
         RecordWithBLOBs record = new RecordWithBLOBs();
         record.setName(recordname);
         record.setState(0);
@@ -80,7 +83,7 @@ public class RecordService {
         String username = TokenUtil.getAudience(token);
         if(!check(recordname,username))
             return new ErrorReport(31,"id no exist");
-
+        RecordList.update();
         RecordWithBLOBs record=recordMapper.selectByPrimaryKey(recordname);
         if(record!=null)
             return new ErrorReport(0,"success",new ResponseObjectData(record));

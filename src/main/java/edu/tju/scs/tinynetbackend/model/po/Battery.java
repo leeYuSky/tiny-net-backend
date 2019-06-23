@@ -301,4 +301,44 @@ public class Battery {
     public void setOwner(String owner) {
         this.owner = owner == null ? null : owner.trim();
     }
+
+    public String toString1()
+    {
+        String ret="";
+        ret+=Double.toString(eddy)+'\n';
+        ret+=Double.toString(xhcfdxl)+'\n';
+        ret+=Double.toString(zdcdsl)+'\n';
+        ret+=Double.toString(zdcddl)+'\n';
+        ret+=Double.toString(zdfdsl)+'\n';
+        ret+=Double.toString(dcrl)+'\n';
+        ret+=Double.toString(life)+'\n';
+        ret+=Double.toString(qsmfd)+'\n';
+        ret+=Integer.toString(clgs)+'\n';
+        ret+=Integer.toString(type)+'\n';
+        return ret;
+
+    }
+
+    public String toString2()
+    {
+        String ret="";
+        ret+=Integer.toString(capacity1)+' ';
+        ret+=Integer.toString(capacity2)+' ';
+        ret+=Integer.toString(capacity3)+' ';
+        ret+=Integer.toString(capacity4)+'\n';
+        ret+=Double.toString(cjcb1)+' ';
+        ret+=Double.toString(cjcb2)+' ';
+        ret+=Double.toString(cjcb3)+' ';
+        ret+=Double.toString(cjcb4)+'\n';
+        ret+=Double.toString(gxcb1)+' ';
+        ret+=Double.toString(gxcb2)+' ';
+        ret+=Double.toString(gxcb3)+' ';
+        ret+=Double.toString(gxcb4)+'\n';
+        ret+=Double.toString(yxwhcb1)+' ';
+        ret+=Double.toString(yxwhcb2)+' ';
+        ret+=Double.toString(yxwhcb3)+' ';
+        ret+=Double.toString(yxwhcb4)+'\n';
+        return ret;
+
+    }
 }

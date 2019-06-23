@@ -652,4 +652,58 @@ public class Wind_Turbines {
     public void setOwner(String owner) {
         this.owner = owner == null ? null : owner.trim();
     }
+
+    public  String toString1()
+    {
+        String ret="";
+        ret+=Double.toString(edgl)+'\n';
+        ret+=Double.toString(fjlggd)+'\n';
+        ret+=Double.toString(life)+'\n';
+        ret+=Integer.toString(type)+'\n';
+
+        ret+=Integer.toString(capacity1)+' ';
+        ret+=Integer.toString(capacity2)+' ';
+        ret+=Integer.toString(capacity3)+' ';
+        ret+=Double.toString(capacity4)+'\n';
+        ret+=Double.toString(cjcb1)+' ';
+        ret+=Double.toString(cjcb2)+' ';
+        ret+=Double.toString(cjcb3)+' ';
+        ret+=Double.toString(cjcb4)+'\n';
+        ret+=Double.toString(gxcb1)+' ';
+        ret+=Double.toString(gxcb2)+' ';
+        ret+=Double.toString(gxcb3)+' ';
+        ret+=Double.toString(gxcb4)+'\n';
+        ret+=Double.toString(yxwhcb1)+' ';
+        ret+=Double.toString(yxwhcb2)+' ';
+        ret+=Double.toString(yxwhcb3)+' ';
+        ret+=Double.toString(yxwhcb4)+'\n';
+
+        return  ret;
+    }
+
+    public String toString2()
+    {
+        String ret="";
+        ret+=Double.toString(fs1)+" "+Double.toString(gl1)+'\n';
+        ret+=Double.toString(fs2)+" "+Double.toString(gl2)+'\n';
+        ret+=Double.toString(fs3)+" "+Double.toString(gl3)+'\n';
+        ret+=Double.toString(fs4)+" "+Double.toString(gl4)+'\n';
+        ret+=Double.toString(fs5)+" "+Double.toString(gl5)+'\n';
+        ret+=Double.toString(fs6)+" "+Double.toString(gl6)+'\n';
+        ret+=Double.toString(fs7)+" "+Double.toString(gl7)+'\n';
+        ret+=Double.toString(fs8)+" "+Double.toString(gl8)+'\n';
+        ret+=Double.toString(fs9)+" "+Double.toString(gl9)+'\n';
+        ret+=Double.toString(fs10)+" "+Double.toString(gl10)+'\n';
+        ret+=Double.toString(fs11)+" "+Double.toString(gl11)+'\n';
+        ret+=Double.toString(fs12)+" "+Double.toString(gl12)+'\n';
+        ret+=Double.toString(fs13)+" "+Double.toString(gl13)+'\n';
+        ret+=Double.toString(fs14)+" "+Double.toString(gl14)+'\n';
+        ret+=Double.toString(fs15)+" "+Double.toString(gl15)+'\n';
+        ret+=Double.toString(fs16)+" "+Double.toString(gl16)+'\n';
+        ret+=Double.toString(fs17)+" "+Double.toString(gl17)+'\n';
+        ret+=Double.toString(fs18)+" "+Double.toString(gl18)+'\n';
+        ret+=Double.toString(fs19)+" "+Double.toString(gl19)+'\n';
+        ret+=Double.toString(fs20)+" "+Double.toString(gl20)+'\n';
+        return  ret;
+    }
 }

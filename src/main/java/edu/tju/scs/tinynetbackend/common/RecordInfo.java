@@ -32,6 +32,7 @@ public class RecordInfo {
 
     }
 
+
     public String getName() {
         return name;
     }

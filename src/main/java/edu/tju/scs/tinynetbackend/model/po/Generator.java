@@ -380,4 +380,55 @@ public class Generator {
     public void setOwner(String owner) {
         this.owner = owner == null ? null : owner.trim();
     }
+
+    public  String  toString1()
+    {
+        String ret="";
+        ret+=Double.toString(edgl)+'\n';
+        ret+=Double.toString(zdfzl)+'\n';
+        ret+=Double.toString(zxyysj)+'\n';
+        ret+=Double.toString(life)+'\n';
+        ret+=Double.toString(co)+'\n';
+        ret+=Double.toString(wrsdqhhw)+'\n';
+        ret+=Double.toString(klw)+'\n';
+        ret+=Double.toString(dyhw)+'\n';
+        ret+=Double.toString(so2)+'\n';
+
+        return  ret;
+
+    }
+
+    public String toString2()
+    {
+        String ret="";
+        ret+=Integer.toString(capacity1)+' ';
+        ret+=Integer.toString(capacity2)+' ';
+        ret+=Integer.toString(capacity3)+' ';
+        ret+=Integer.toString(capacity4)+'\n';
+        ret+=Double.toString(cjcb1)+' ';
+        ret+=Double.toString(cjcb2)+' ';
+        ret+=Double.toString(cjcb3)+' ';
+        ret+=Double.toString(cjcb4)+'\n';
+        ret+=Double.toString(gxcb1)+' ';
+        ret+=Double.toString(gxcb2)+' ';
+        ret+=Double.toString(gxcb3)+' ';
+        ret+=Double.toString(gxcb4)+'\n';
+        ret+=Double.toString(yxwhcb1)+' ';
+        ret+=Double.toString(yxwhcb2)+' ';
+        ret+=Double.toString(yxwhcb3)+' ';
+        ret+=Double.toString(yxwhcb4)+'\n';
+        return ret;
+    }
+
+    public String toString3()
+    {
+        String ret="";
+        ret+=Double.toString(scgl1)+' ';
+        ret+=Double.toString(rlxh1)+'\n';
+        ret+=Double.toString(scgl2)+' ';
+        ret+=Double.toString(rlxh2)+'\n';
+        ret+=Double.toString(scgl3)+' ';
+        ret+=Double.toString(rlxh3)+'\n';
+        return ret;
+    }
 }
