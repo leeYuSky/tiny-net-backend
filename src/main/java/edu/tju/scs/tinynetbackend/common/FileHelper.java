@@ -17,8 +17,14 @@ public class FileHelper {
 
     public static String getOurput(String username,String recordname)
     {
-        String path="/"+username+"/"+recordname+"/IO/OUT0";
+        String path="/"+username+"/"+recordname+"/IO/OUT0/";
         String ret="";
+        JSONObject output = new JSONObject();
+        JSONObject temp = new JSONObject();
+        File file;
+        FileInputStream in;
+        Scanner scanner;
+        /*
         try {
 
             File file = new File(path);
@@ -46,7 +52,33 @@ public class FileHelper {
         {
             e.printStackTrace();
         }
-        return  ret;
+
+        */
+        try{
+            file=new File(path+"Abschille_Details.txt");
+            in = new FileInputStream(file);
+            scanner = new Scanner(in);
+            temp.put("pjzlgl",scanner.nextDouble());
+            temp.put("rjzll",scanner.nextDouble());
+            temp.put("zzll",scanner.nextDouble());
+            temp.put("zxsclgl",scanner.nextDouble());
+            temp.put("zdsclgl",scanner.nextDouble());
+            temp.put("pjcrgl",scanner.nextDouble());
+            temp.put("rjcrl",scanner.nextDouble());
+            temp.put("zcrl",scanner.nextDouble());
+            temp.put("zxscrgl",scanner.nextDouble());
+            temp.put("zdscrgl",scanner.nextDouble());
+            temp.put("yxsj",scanner.nextDouble());
+            temp.put("xszyql",scanner.nextDouble());
+
+            output.put("Abschille_Details",temp);
+
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return  output.toString();
     }
 
     public  static  String readFile(String path)

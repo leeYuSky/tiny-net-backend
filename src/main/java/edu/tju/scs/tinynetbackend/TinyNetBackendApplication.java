@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.Scanner;
 
 
@@ -46,7 +47,13 @@ public class TinyNetBackendApplication {
             user.setPassword(passwordEncoder.encode("testpassword"));
 
             userMapper.updateByPrimaryKey(user);
+            String output=FileHelper.getOurput("test","test7");
+            File newfile = new File("output.json");
+            FileOutputStream out = new FileOutputStream(newfile);
 
+            out.write(output.getBytes());
+            out.close();
+            /*
             String path = "D:/PowerNet20180830nocode/PowerNet20180522nocode/bin/IO/IN0";
             String ret = "";
             try {
@@ -113,6 +120,7 @@ public class TinyNetBackendApplication {
                     recordMapper.updateByPrimaryKey(record);
                 }
             }
+            */
 
 
 
