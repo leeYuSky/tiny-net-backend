@@ -49,6 +49,7 @@ public class TinyNetBackendApplication {
             userMapper.updateByPrimaryKey(user);
             String output=FileHelper.getOurput("test","test7");
             File newfile = new File("output.json");
+
             FileOutputStream out = new FileOutputStream(newfile);
 
             out.write(output.getBytes());
