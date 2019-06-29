@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,10 +21,11 @@ public class FileHelper {
         String path="/"+username+"/"+recordname+"/IO/OUT0/";
         String ret="";
         JSONObject output = new JSONObject();
-        JSONObject temp = new JSONObject();
+        JSONObject temp;
         File file;
         FileInputStream in;
         Scanner scanner;
+        List<Double>list;
         /*
         try {
 
@@ -55,9 +57,11 @@ public class FileHelper {
 
         */
         try{
+
             file=new File(path+"Abschille_Details.txt");
             in = new FileInputStream(file);
             scanner = new Scanner(in);
+            temp =  new JSONObject();
             temp.put("pjzlgl",scanner.nextDouble());
             temp.put("rjzll",scanner.nextDouble());
             temp.put("zzll",scanner.nextDouble());
@@ -70,8 +74,43 @@ public class FileHelper {
             temp.put("zdscrgl",scanner.nextDouble());
             temp.put("yxsj",scanner.nextDouble());
             temp.put("xszyql",scanner.nextDouble());
-
             output.put("Abschille_Details",temp);
+            in.close();
+
+            file=new File(path+"AccPowerSupply.txt");
+            in = new FileInputStream(file);
+            scanner = new Scanner(in);
+            temp =  new JSONObject();
+            temp.put("qnhdlzj",scanner.nextDouble());
+            output.put("AccPowerSupply",temp);
+            in.close();
+
+            file=new File(path+"AnnualCost_Abschille.txt");
+            in = new FileInputStream(file);
+            scanner = new Scanner(in);
+            temp =  new JSONObject();
+            temp.put("czcbnz",scanner.nextDouble());
+            temp.put("thcbnz",scanner.nextDouble());
+            temp.put("ywcbnz",scanner.nextDouble());
+            temp.put("rlcbnz",scanner.nextDouble());
+            temp.put("cznz",scanner.nextDouble());
+            temp.put("cbzjnz",scanner.nextDouble());
+            output.put("AnnualCost_Abschille",temp);
+            in.close();
+
+            file=new File(path+"AnnualCost_accumulateloan.txt");
+            in = new FileInputStream(file);
+            scanner = new Scanner(in);
+            temp =  new JSONObject();
+            temp.put("xmjsqqkljnz",scanner.nextDouble());
+            list = new ArrayList<>();
+            while(scanner.hasNext())
+                list.add(scanner.nextDouble());
+            temp.put("qkljnz",list);
+            output.put("AnnualCost_accumulateloan",temp);
+            in.close();
+
+
 
 
         }catch (Exception e)
